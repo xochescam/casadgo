@@ -12,5 +12,30 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+// ADMIN
+Route::get('/admin', function () {
+    return view('admin.login');
+});
+
+Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
+
+Route::resource('galeria', 'GaleryController');
+
+Route::resource('noticias', 'NoticesController');
+
+// PUBLIC
+
+Route::get('/nosotros', function () {
+    return view('partials.more-about');
+});
+
+Route::get('/noticias', function () {
+    return view('partials.more-notices');
+});
+
+Route::get('/galeria', function () {
+    return view('partials.more-galery');
 });

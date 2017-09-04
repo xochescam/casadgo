@@ -38,19 +38,18 @@ elixir(function(mix) {
 
     //Scripts Dependencies
     mix.scripts([
-        'theme/bootstrap.min.js',
-        'theme/owl.carousel.min.js',
-        'theme/mousescroll.js',
-        'theme/smoothscroll.js',
-        'theme/jquery.prettyPhoto.js',
-        'theme/jquery.isotope.min.js',
-        'theme/jquery.inview.min.js',
-        'theme/wow.min.js',
-        'theme/main.js',
-    ], 'public/js/theme.min.js');
+        'vendor/bootstrap.min.js',
+        'vendor/jquery.isotope.min.js',
+        'vendor/owl.carousel.min.js',
+        'vendor/mousescroll.js',
+        'vendor/smoothscroll.js',
+        'vendor/jquery.prettyPhoto.js',
+        'vendor/jquery.inview.min.js',
+        'vendor/wow.min.js',
+    ], 'public/js/dependencies.min.js');
 
-    // // Site scripts
-    // mix.rollup('main/main.js', 'public/js/main.min.js');
+    // Site scripts
+    mix.rollup('main/main.js', 'public/js/main.min.js');
 
     // // Admin scripts
     // mix.webpack('admin/admin.js', 'public/js/admin.min.js');

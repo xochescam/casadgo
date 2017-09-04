@@ -1,10 +1,15 @@
 // Resets
-@import "03_resets/_fonts";;
+@import "03-resets/_fonts";
+
+// Components
+@import "07-components/_sections";
 
 // Theme
-@import "08_theme/_pretty-photo";
-@import "08_theme/_theme";
+@import "08-theme/_theme";
 
 // Modules
-@import "09_modules/_owl.carousel";
-@import "09_modules/_owl.transitions";
+@import "09-modules/_animate.min";
+@import "09-modules/_bootstrap.min";
+@import "09-modules/_owl.carousel";
+@import "09-modules/_owl.transitions";
+@import "09-modules/_prettyPhoto";

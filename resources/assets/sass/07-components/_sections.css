@@ -1,0 +1,59 @@
+.custom_section {
+  padding: 100px 0px;
+}
+
+#sponsors {
+  padding: 100px 0px;
+}
+
+#portfolio .portfolio-items {
+	margin-bottom: 30px;
+}
+
+.pp_expand {
+	display: none !important;
+}
+.form-login {
+	margin: 0 auto;
+    padding: 0 15px;
+    position: relative;
+    top: 40%;
+    text-align: center;
+    -webkit-transform: translate(0, 35%);
+    -ms-transform: translate(0, 35%);
+    transform: translate(0, 35%);
+    width: 260px;
+}
+
+.form-login .logo {
+    margin-bottom: 24px;
+    position: relative;
+    top: 0;
+}
+
+.img-thumbnail__circle {
+    border: none;
+    background-color: none;
+    border-radius: 150px !important;
+    padding-bottom: 10px; 
+
+}
+
+.volunters a {
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+}
+
+.volunters div {
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+#volunters {
+    padding: 100px 0;
+}
+
+.modal-header .close__icon {
+    margin-top: -19px;
+}
