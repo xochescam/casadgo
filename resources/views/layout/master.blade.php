@@ -26,7 +26,7 @@
 
 <body id="@yield('id')" class="@yield('class')">
 
-    @include('admin.nav')
+
 
     @include('partials.header-public')
 

@@ -13,7 +13,7 @@ require('laravel-elixir-postcss');
 elixir.config.browserSync.notify = false;
 elixir.config.css.autoprefix.enabled = false;
 elixir.config.js.uglify.options = {compress: {drop_console: true}, preserveComments: 'license'};
-elixir.config.sourcemaps = false;
+// elixir.config.sourcemap = false;
 // elixir.config.production = true;
 
 const autoprefixerConfig = {browsers: ['> 1%', '> 1% in MX', 'last 3 versions']};
@@ -55,6 +55,6 @@ elixir(function(mix) {
     // mix.webpack('admin/admin.js', 'public/js/admin.min.js');
 
     mix.browserSync({
-        proxy: 'casa.local'
+        proxy: 'casa.dev'
     });
 });

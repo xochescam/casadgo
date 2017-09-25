@@ -2,7 +2,7 @@
 
 {{-- Metadata --}}
 @section('meta.title', 'C.A.S.A.')
-@section('meta.tab_title', 'Subir noticia')
+@section('meta.tab_title', 'Subir foto')
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'galery-create')
