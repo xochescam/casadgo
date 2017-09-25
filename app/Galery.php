@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Galery extends Model
 {
-	protected $table = 'roles';
-	protected $fillable = ['id', 'name', 'url', 'description'];
+	protected $table = 'galeries';
+	protected $fillable = ['id', 'name', 'description', 'media_id'];
 }

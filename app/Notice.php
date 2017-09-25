@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notice extends Model
 {
-	protected $table = 'roles';
-	protected $fillable = ['id', 'url', 'title', 'description', 'date', 'type'];
+	protected $table = 'notices';
+	protected $fillable = ['id', 'title', 'description', 'date'];
 }

@@ -15,11 +15,9 @@ class CreateNoticesTable extends Migration
     {
         Schema::create('notices', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url');
             $table->string('title');
             $table->longText('description');
             $table->date('date');
-            $table->enum('type', ['img', 'video']);
             $table->timestamps();
         });
     }

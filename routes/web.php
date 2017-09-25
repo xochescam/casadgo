@@ -22,9 +22,14 @@ Route::get('/admin', function () {
 
 Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
 
-Route::resource('galeria', 'GaleryController');
+//Route::resource('galeria', 'GaleryController');
 
-Route::resource('noticias', 'NoticesController');
+//Route::resource('noticias', 'NoticesController');
+
+Route::get('/subir-foto', 'GaleryController@create');
+
+Route::get('/crear-noticia', 'NoticesController@create');
+
 
 // PUBLIC
 

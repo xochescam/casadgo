@@ -5,8 +5,8 @@
 @section('meta.tab_title', 'Nosotros')
 @section('meta.description', '')
 @section('meta.canonical')
-@section('id', 'about')
-@section('class', 'about')
+@section('id', 'about-module')
+@section('class', 'about-module')
 
 @section('content')
 
