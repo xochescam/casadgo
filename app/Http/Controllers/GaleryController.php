@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Session;
-use Redirect;
-
 use App\Http\Requests\GaleryRequest;
 use App\Galery;
+
+use Session;
+use Redirect;
+use DB;
+use Gate;
 
 class GaleryController extends Controller
 {
@@ -29,6 +31,11 @@ class GaleryController extends Controller
      */
     public function create()
     {
+
+        if (Gate::denies('create.galery')) {
+            abort(403);
+        }
+
         return view('admin.galery.create');
     }
 
@@ -40,10 +47,16 @@ class GaleryController extends Controller
      */
     public function store(GaleryRequest $request)
     {
-        $imageData = new Galery();
-        $imageData = $imageData->saveData($request);
+        if (Gate::denies('create.galery')) {
+            abort(403);
+        }
 
-        if($imageData) {
+        $save = DB::transaction(function () use ($request) {
+            $fileData = Galery::saveData($request);
+            return $fileData;
+        });
+
+        if($save) {
             Session::flash('message','Guardada correctamente');
             return Redirect::to('/subir-foto');
         }
@@ -57,6 +70,10 @@ class GaleryController extends Controller
      */
     public function show()
     {
+        if (Gate::denies('show.galery')) {
+            abort(403);
+        }
+        
         return view('admin.galery.read');
     }
 
@@ -68,6 +85,10 @@ class GaleryController extends Controller
      */
     public function edit($id)
     {
+        if (Gate::denies('edit.galery')) {
+            abort(403);
+        }
+
         $galery = Galery::findOrFail($id);
 
         return view('admin.galery.edit',compact('galery'));
@@ -82,6 +103,10 @@ class GaleryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (Gate::denies('edit.galery')) {
+            abort(403);
+        }
+
         $galery = new Galery();
         $galery = $galery->updateData($request, $id);
 
@@ -99,6 +124,8 @@ class GaleryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Gate::denies('delete.galery')) {
+            abort(403);
+        }
     }
 }

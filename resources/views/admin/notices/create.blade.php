@@ -10,17 +10,21 @@
 
 @section('content')
     
-    <div class="container container_margin--med">
-        <div class="row">
-            <div class="col-md-8">
-                <h3>Crear noticia</h3>
-                <hr>
+    <div class="container">
+        <div class="row row--margin">
+
+            
+            
+            <h2 class="text-center">Crear noticia</h2>
+            <hr>
+                
+            <div class="col-md-8 form_parent">
 
                 @include('alerts.success')
                 @include('alerts.error')
                 @include('alerts.warning')
                 
-                {!! Form::open([ 'method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
+                {!! Form::open(['url' => 'crear-noticia',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
                     
                     @include('admin.notices.form')
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use Carbon\Carbon;
 
+use App\MediaNotice;
+
 class Media extends Model
 {
 	protected $table = 'media';
@@ -16,43 +18,66 @@ class Media extends Model
         return $this->hasOne('App\Galery');
     }
 
-	public static function saveImage($request){
+	public static function saveNoticeOrImage($request, $type, $noticeId){
 
-		$media     = $request->img;
-		$typeMedia = explode("/", $media->getClientMimeType());
+		if($type == 'notices') {
 
-		if($typeMedia[0] == 'image') {
+			foreach ($request->img as $fileKey => $fileValue) {
 
-			$type = 'img';
+				$save = Media::saveFile($fileKey, $fileValue, $type);
+
+        		$mediaNotice = MediaNotice::saveData($save->id, $noticeId);
+			}
+
+			return 'true';
 
 		} else {
 
-			$type = 'video';
+			$save = Media::saveFile(1, $request->img, $type);
+
+			return $save;
 		}
-
-		$now = Carbon::now()->toDateTimeString();
-		$doblepoint = str_replace(":", "", $now);
-		$middle     = str_replace("-", "", $doblepoint);
-		$name       = str_replace(" ", "", $middle);
+    }
 
 
+    public static function saveFile($key, $img, $type) {
 
-		if($media != null){
-            $originalNameFiles = $media->getClientOriginalName();
-            $extFiles =  strtolower(pathinfo($originalNameFiles, PATHINFO_EXTENSION));
-            $newNameFiles = $name.".".$extFiles;
+			$typeMedia = explode("/", $img->getClientMimeType());
 
-            \Storage::disk('local')->put("galery/".$newNameFiles,  \File::get($media));
-        }
+			if($typeMedia[0] == 'image') {
 
-		$media = new Media;
+				$typeFile = 'img';
 
-        $media->name = $newNameFiles;
-        $media->url  = '/galery/';
-        $media->type = $type;
-        $media->save();
+			} else {
 
-        return $media;
+				$typeFile = 'video';
+			}
 
+
+			$file = new Media;
+
+	        $file->name = $key;
+	        $file->url  = '/'.$type.'/';
+	        $file->type = $typeFile;
+	        $file->save();
+
+
+			$now 		= Carbon::now()->toDateTimeString();
+			$doblepoint = str_replace(":", "", $now);
+			$middle     = str_replace("-", "", $doblepoint);
+			$name       = str_replace(" ", "", $middle);
+
+			if($img != null){
+	            $originalNameFiles = $img->getClientOriginalName();
+	            $extFiles 		   =  strtolower(pathinfo($originalNameFiles, PATHINFO_EXTENSION));
+	            $newNameFiles 	   = $name."_".$file->id.".".$extFiles;
+
+	            \Storage::disk('local')->put($type."/".$newNameFiles,  \File::get($img));
+	        }
+
+			$file->name = $newNameFiles;
+			$file->save();
+
+			return $file;
     }
 }

@@ -4,6 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Requests\NoticeRequest;
+use App\Notice;
+use App\Media;
+use App\MediaNotice;
+
+use Session;
+use Redirect;
+use DB;
+
 class NoticesController extends Controller
 {
     /**
@@ -23,6 +32,10 @@ class NoticesController extends Controller
      */
     public function create()
     {
+        if (Gate::denies('create.notice')) {
+            abort(403);
+        }
+
         return view('admin.notices.create');
     }
 
@@ -32,9 +45,23 @@ class NoticesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticeRequest $request)
     {
-        //
+
+        if (Gate::denies('create.notice')) {
+            abort(403);
+        }
+        
+        $save = DB::transaction(function () use ($request) {
+            $fileData = Notice::saveData($request);
+            return $fileData;
+        });
+
+        
+        if($save) {
+            Session::flash('message','Guardada correctamente');
+            return Redirect::to('/crear-noticia');
+        }
     }
 
     /**
@@ -45,7 +72,9 @@ class NoticesController extends Controller
      */
     public function show($id)
     {
-        //
+        if (Gate::denies('show.notice')) {
+            abort(403);
+        }
     }
 
     /**
@@ -56,7 +85,9 @@ class NoticesController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Gate::denies('edit.notice')) {
+            abort(403);
+        }
     }
 
     /**
@@ -68,7 +99,9 @@ class NoticesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Gate::denies('edit.notice')) {
+            abort(403);
+        }
     }
 
     /**
@@ -79,6 +112,10 @@ class NoticesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Gate::denies('destroy.notice')) {
+            abort(403);
+        }
+
+
     }
 }

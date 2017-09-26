@@ -7,6 +7,13 @@ use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 use App\Http\Requests\LoginRequest;
 
+use Illuminate\Http\Request;
+
+use Auth;
+use Session;
+use Redirect;
+use App\User;
+
 class LoginController extends Controller
 {
     /*
@@ -27,7 +34,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/subir-foto';
 
     /**
      * Create a new controller instance.
@@ -41,7 +48,59 @@ class LoginController extends Controller
 
     public function postLogin(LoginRequest $request){
 
-        dd($request->all());
 
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            $users = User::where('email', '=', $request['email'])->get();
+
+            $redirectRoute = $this->getRedirectRoute((Auth::user()->roles->first()->id));
+
+            return Redirect::to($redirectRoute);
+        }
+
+        Session::flash('warning','Los datos son incorrectos.');
+        return Redirect::to('/admin');
+
+    }
+
+    /**
+     * Logout for users
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getLogout()
+    {
+
+        if(Auth::user()){
+
+            Auth::logout();
+            Session::flush();
+
+            return redirect('/admin');
+        }
+
+        return redirect('/subir-foto');
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Getters
+    |--------------------------------------------------------------------------
+    */
+
+    /**
+     * Return corresponding redirect route for each user role.
+     *
+     * @param string $role
+     * @return string
+     */
+    public function getRedirectRoute($role)
+    {
+
+        $routes = [
+            1 => '/subir-foto', //admin
+        ];
+
+        return $routes[$role];
     }
 }

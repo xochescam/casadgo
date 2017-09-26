@@ -11,10 +11,12 @@
 @section('content')
     
     <div class="container container_margin--med">
-        <div class="row">
+        <div class="row row--margin">
+
+            <h3 class="text-center">Editar foto</h3>
+            <hr>
+
             <div class="col-md-8">
-                <h3>Editar foto</h3>
-                <hr>
 
        {{--     @include('alerts.success')
                 @include('alerts.error')

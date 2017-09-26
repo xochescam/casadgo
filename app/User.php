@@ -26,4 +26,63 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function roles()
+    {
+        return $this->belongsToMany('\App\Role','role_users');
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ACL
+    |--------------------------------------------------------------------------
+    */
+
+
+    /**
+     * Determine if the user may perform the given permission.
+     *
+     * @param  Permission $permission
+     * @return boolean
+     */
+    public function hasPermission(Permission $permission)
+    {
+        return $this->hasRole($permission->role);
+    }
+
+
+
+   /**
+     * Determine if the user has the given role.
+     *
+     * @param  mixed $role
+     * @return boolean
+     */
+    public function hasRole($role)
+    {
+
+        if (is_string($role)) {
+
+            return $this->roles->contains('slug', $role);
+
+        }
+            // if(!! $role->intersect($this->roles)->count()){
+            //     dd($role->toArray());
+            // }
+
+        return !! $role->intersect($this->roles)->count();
+    }
+
+
+    /**
+     * Determine if logged user has "superadmin" role.
+     *
+     * @return boolean
+     */
+    public function isSuperAdmin() {
+
+        return $this->hasRole('admin');
+    }
 }

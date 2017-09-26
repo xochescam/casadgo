@@ -20,7 +20,11 @@ Route::get('/admin', function () {
     return view('admin.login');
 });
 
+
+//Login
 Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
+// Logout
+Route::get('/cerrar-sesion','Auth\LoginController@getLogout');
 
 //Route::resource('galeria', 'GaleryController');
 
@@ -34,6 +38,9 @@ Route::get('/editar-foto/{id}', 'GaleryController@edit');
 Route::post('/editar-foto/{id}', 'GaleryController@update');
 
 Route::get('/crear-noticia', 'NoticesController@create');
+Route::post('/crear-noticia', 'NoticesController@store');
+
+Route::post('/send-email', 'EmailController@send');
 
 
 // PUBLIC

@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Media;
+
 class Galery extends Model
 {
 	protected $table = 'galeries';
-	protected $fillable = ['id', 'name', 'description', 'media_id'];
+	protected $fillable = ['id', 'title', 'description', 'media_id'];
 
 
 	public function media()
@@ -17,27 +19,26 @@ class Galery extends Model
 
 	public static function saveData($request){
 
-		$image = new Media();
-		$image = $image->saveImage($request);
+		$file = Media::saveNoticeOrImage($request, 'galery', 0);
 
-		$imageData = new Galery;
+		$galeryData = new Galery;
 
-        $imageData->name        = $request->name;
-        $imageData->description = $request->description;
-        $imageData->media_id    = $image->id;
-        $imageData->save();
+        $galeryData->title        = $request->title;
+        $galeryData->description = $request->description;
+        $galeryData->media_id    = $file->id;
+        $galeryData->save();
 
-        return $imageData;
+        return $galeryData;
     }
 
     public static function updateData($request, $id){
 
-        $dataImage = Galery::findOrFail($id);
+        $galeryData = Galery::findOrFail($id);
 
-        $dataImage->name        = $request->name;
-        $dataImage->description = $request->description;;
-        $dataImage->save();
+        $galeryData->title        = $request->title;
+        $galeryData->description = $request->description;;
+        $galeryData->save();
 
-        return $dataImage;
+        return $galeryData;
     }
 }

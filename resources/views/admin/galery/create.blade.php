@@ -10,16 +10,21 @@
 
 @section('content')
     
-    <div class="container container_margin--med">
-        <div class="row">
-            <div class="col-md-8">
-                <h3>Subir foto</h3>
-                <hr>
+    <div class="container">
+        <div class="row row--margin">
 
+            <a href="{{ url('/cerrar-sesion') }}">Cerrar sesión</a>
+            
+            <h2 class="text-center">Subir foto</h2>
+            <hr>
+
+            <div class="col-md-8 form_parent">
+                
                 @include('alerts.error')
                 @include('alerts.success')
+                @include('alerts.warning')
                 
-                {!! Form::open([ 'url' => 'subir-foto', 'method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
+                {!! Form::open([ 'url' => 'subir-foto', 'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
                     
                     @include('admin.galery.form')
 

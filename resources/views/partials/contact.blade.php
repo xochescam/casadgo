@@ -24,21 +24,31 @@
                               <abbr title="Phone">Tel:</abbr> (618) 825-4121
                             </address>
 
-                            <form id="main-contact-form" name="contact-form" method="post" action="#">
+                            @include('alerts.error')
+                            @include('alerts.success')
+                            @include('alerts.warning')
+
+                            {!! Form::open([ 'url' => 'send-email', 'method' => 'POST']) !!}
+
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Nombre" required>
+                                    {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Nombre', 'required']) !!}
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
+                                    {!! Form::email('email', null, ['class' => 'form-control','placeholder' => 'Correo electrónico', 'required']) !!}
                                 </div>
+
                                 <div class="form-group">
-                                    <input type="text" name="subject" class="form-control" placeholder="Asunto" required>
+                                    {!! Form::text('subject', null, ['class' => 'form-control','placeholder' => 'Asunto', 'required']) !!}
                                 </div>
+
                                 <div class="form-group">
-                                    <textarea name="message" class="form-control" rows="8" placeholder="Mensaje" required></textarea>
-                                </div>
+                                    {!! Form::textarea('message', null, ['class' => 'form-control','placeholder' => 'Mensaje', 'required']) !!}
+
                                 <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
-                            </form>
+
+                           {!! Form::close() !!}
+
                         </div>
                     </div>
                 </div>

@@ -107,7 +107,11 @@ return [
     'attributes' => [
         'name'        => 'Nombre',
         'description' => 'Descripción',
-        'img' => 'Elegir archivos',
+        'img'         => 'Elegir archivos',
+        'title'       => 'Título',
+        'date'        => 'Fecha',
+        'email'       => 'Correo electrónico',
+        'password'    => 'Contraseña',
 
     ],
 

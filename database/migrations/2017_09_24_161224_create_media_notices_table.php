@@ -18,6 +18,7 @@ class CreateMediaNoticesTable extends Migration
             $table->foreign('media_id')->references('id')->on('media');
             $table->integer('notice_id')->unsigned();
             $table->foreign('notice_id')->references('id')->on('notices');
+            $table->timestamps();
         });
     }
 
