@@ -16,11 +16,10 @@
                 <h3>Subir foto</h3>
                 <hr>
 
-                @include('alerts.success')
                 @include('alerts.error')
-                @include('alerts.warning')
+                @include('alerts.success')
                 
-                {!! Form::open([ 'method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
+                {!! Form::open([ 'url' => 'subir-foto', 'method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
                     
                     @include('admin.galery.form')
 

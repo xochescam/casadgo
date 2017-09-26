@@ -5,8 +5,8 @@
 @section('meta.tab_title', 'Editar foto')
 @section('meta.description', '')
 @section('meta.canonical')
-@section('id', 'galery-create')
-@section('class', 'galery-create')
+@section('id', 'galery-edit')
+@section('class', 'galery-edit')
 
 @section('content')
     
@@ -16,12 +16,12 @@
                 <h3>Editar foto</h3>
                 <hr>
 
-                @include('alerts.success')
+       {{--     @include('alerts.success')
                 @include('alerts.error')
-                @include('alerts.warning')
+                @include('alerts.warning') --}}
                 
-                {!! Form::open([ 'method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
-                    
+                {!!Form::model($galery, array('url' => array('/editar-foto', $galery->id)))!!}
+  
                     @include('admin.galery.form')
 
                 {!! Form::close() !!}

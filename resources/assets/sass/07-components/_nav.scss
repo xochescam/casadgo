@@ -1,0 +1,22 @@
+header {
+	position: fixed;
+	top: 0;
+	z-index: 99;
+}
+
+nav {
+	position: relative;
+}
+
+.navbar--admin {
+	height: 40px;
+	left: 0;
+    right: 0;
+	position: relative;
+    top: 0;
+    z-index: 99;
+}
+
+.navbar-fixed-top {
+	top: none;
+}

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Session;
+use Redirect;
 
+use App\Http\Requests\GaleryRequest;
+use App\Galery;
 
 class GaleryController extends Controller
 {
@@ -34,9 +38,15 @@ class GaleryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GaleryRequest $request)
     {
-        dd($request->all());
+        $imageData = new Galery();
+        $imageData = $imageData->saveData($request);
+
+        if($imageData) {
+            Session::flash('message','Guardada correctamente');
+            return Redirect::to('/subir-foto');
+        }
     }
 
     /**
@@ -45,7 +55,7 @@ class GaleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         return view('admin.galery.read');
     }
@@ -58,7 +68,9 @@ class GaleryController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.galery.edit');
+        $galery = Galery::findOrFail($id);
+
+        return view('admin.galery.edit',compact('galery'));
     }
 
     /**
@@ -70,7 +82,13 @@ class GaleryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        dd($request->all());
+        $galery = new Galery();
+        $galery = $galery->updateData($request, $id);
+
+        if($galery) {
+            Session::flash('message','Modificada correctamente');
+            return view('admin.galery.edit',compact('galery'));
+        }
     }
 
     /**

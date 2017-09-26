@@ -1,8 +1,9 @@
 jQuery(function($) {'use strict';
 
-	const clase = document.querySelector('body').className;
+	const classModule = document.querySelector('body').className;
 
-    if (clase !== 'homepage') {
+    if (classModule !== 'homepage') {
+
         return;
     }
 

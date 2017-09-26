@@ -1,4 +1,5 @@
 <header>
-	@include('header-public')
-	@include('nav')
+	@include('partials.nav')
+	@include('partials.header-public')
+	
 </header>

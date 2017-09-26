@@ -26,7 +26,12 @@ Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
 
 //Route::resource('noticias', 'NoticesController');
 
+Route::get('/ver-fotos', 'GaleryController@show');
 Route::get('/subir-foto', 'GaleryController@create');
+Route::post('/subir-foto', 'GaleryController@store');
+
+Route::get('/editar-foto/{id}', 'GaleryController@edit');
+Route::post('/editar-foto/{id}', 'GaleryController@update');
 
 Route::get('/crear-noticia', 'NoticesController@create');
 

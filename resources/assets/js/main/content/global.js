@@ -2,8 +2,6 @@
 
 	const classModule = document.querySelector('body').className;
 
-    alert();
-
     if (classModule !== 'homepage') {
         
         const listOfLi     = document.querySelectorAll('.navbar-nav a');
