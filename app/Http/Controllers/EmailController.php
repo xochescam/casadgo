@@ -12,6 +12,7 @@ use Redirect;
 
 class EmailController extends Controller
 {
+
     /**
      * Send email.
      *
@@ -28,9 +29,8 @@ class EmailController extends Controller
             $msj->subject($request->subject);
 		});
 
-        if($mail) {
-        	Session::flash('message','Enviado correctamente');
-            return Redirect::to('/#contacto');
-        }
+        Session::flash('message','Enviado correctamente');
+        return Redirect::to('#contacto');
+        
     }
 }

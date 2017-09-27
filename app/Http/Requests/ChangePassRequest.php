@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class EmailRequest extends FormRequest
+class ChangePassRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,9 @@ class EmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'    => 'required',
-            'email'   => 'required|email',
-            'subject' => 'required',
-            'msj' => 'required'
+            'current_pass' => 'required|min:3',
+            'new_pass' => 'required|min:3|same:confirm_new_pass',
+            'confirm_new_pass' => 'required|min:3'
         ];
     }
 }

@@ -20,11 +20,19 @@ Route::get('/admin', function () {
     return view('admin.login');
 });
 
+Route::get('/cambiar-contraseña', function () {
+    return view('emails.contact');
+});
+
 
 //Login
 Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
 // Logout
 Route::get('/cerrar-sesion','Auth\LoginController@getLogout');
+//Change pass
+Route::get('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@index');
+//Change pass
+Route::post('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@update');
 
 //Route::resource('galeria', 'GaleryController');
 

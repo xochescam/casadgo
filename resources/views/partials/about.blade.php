@@ -16,20 +16,30 @@
 
                 <div class="col-sm-6 wow fadeInRight">
                     <h3>Misión</h3>
-                    <p>Orientar a las personas en crisis, a  través de consejería, dando apoyo, tiempo para escuchar y ofreciendo diversos servicios sociales a la comunidad con el motivo de dar a conocer la verdad.</p>
+                    <p>Ser un lugar de refugio para toda persona en crisis. Ayudamos a las personas  vulnerables a cubrir sus necesidades inmediatas  atreves de alimentación,  hospedaje y consejería;  además  apoyamos a instituciones, programas y proyectos de ayuda social, para que juntos seamos parte de un cambio favorable en nuestra sociedad.</p>
 
                     <h3>Visión</h3>
-                    <p>Proporcionar un lugar de refugio para toda persona en crisis</p>
+                    <p>El Centro de Ayuda, Servicio y Apoyo de Durango, es una asociacion  integrada por voluntarios comprometidos a ayudar a los personas en crisis, de manera integral, basándose siempre en las verdades de la Palabra de Dios,  con amor y respeto.</p>
 
-                   <!--  <div class="row">
-                        <div class="col-sm-6">
+                    <h3>Valores</h3>
+                    <div class="row">
+                        <div class="col-sm-4">
                             <ul class="nostyle">
-                                <li><i class="fa fa-check-square"></i> Ipsum is simply dummy</li>
-                                <li><i class="fa fa-check-square"></i> When an unknown</li>
-                                <li><i class="fa fa-check-square"></i> When an unknown</li>
+                                <li><i class="fa fa-check-square"></i> Compasión</li>
+                                <li><i class="fa fa-check-square"></i> Servicio</li>
+                                <li><i class="fa fa-check-square"></i> Gratitud</li>
+                                <li><i class="fa fa-check-square"></i> Responsabilidad</li>
                             </ul>
                         </div>
-                    </div> -->
+                        <div class="col-sm-4">
+                            <ul class="nostyle">
+                                <li><i class="fa fa-check-square"></i> Honestidad</li>
+                                <li><i class="fa fa-check-square"></i> Perdón</li>
+                                <li><i class="fa fa-check-square"></i> Amor</li>
+                                <li><i class="fa fa-check-square"></i> Aceptacion</li>
+                            </ul>
+                        </div>
+                    </div>
 
                     <a class="btn btn-primary" href="{{ url('/nosotros') }}">Leer Más</a>
 

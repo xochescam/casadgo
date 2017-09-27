@@ -105,13 +105,18 @@ return [
     */
 
     'attributes' => [
-        'name'        => 'Nombre',
-        'description' => 'Descripción',
-        'img'         => 'Elegir archivos',
-        'title'       => 'Título',
-        'date'        => 'Fecha',
-        'email'       => 'Correo electrónico',
-        'password'    => 'Contraseña',
+        'name'             => 'Nombre',
+        'description'      => 'Descripción',
+        'img'              => 'Elegir archivos',
+        'title'            => 'Título',
+        'date'             => 'Fecha',
+        'email'            => 'Correo electrónico',
+        'password'         => 'Contraseña',
+        'msj'              => 'Mensaje',
+        'subject'          => 'Asunto',
+        'current_pass'     => 'Contraseña actual',
+        'new_pass'         => 'Confirmar contraseña',
+        'confirm_new_pass' => 'Confirmar nueva contraseña'
 
     ],
 

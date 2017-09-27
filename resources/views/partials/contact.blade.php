@@ -43,7 +43,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {!! Form::textarea('message', null, ['class' => 'form-control','placeholder' => 'Mensaje', 'required']) !!}
+                                    {!! Form::textarea('msj', null, ['class' => 'form-control','placeholder' => 'Mensaje', 'required']) !!}
 
                                 <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
 

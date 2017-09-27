@@ -56,11 +56,6 @@
 					    	"text":"Son personas con espíritu de servicio, generosas y amorosas; te acompañan,  aconsejan, y  te escuchan sin críticas; para encontrar una solución a crisis emocionales y te dan herramientas que antes ignorabas, las cuales te ayudan a dar dirección a tu vida."
 					    },
 					    {
-					    	"name":"",
-					    	"completeName":"BALVINA VILLEGAS SILERIO", 
-					    	"text":"Son personas con espíritu de servicio, generosas y amorosas; te acompañan,  aconsejan, y  te escuchan sin críticas; para encontrar una solución a crisis emocionales y te dan herramientas que antes ignorabas, las cuales te ayudan a dar dirección a tu vida."
-					    },
-					    {
 					    	"name":"Lourdes Sanchez",
 					    	"completeName":"LOURDES SÁNCHEZ ÁLVAREZ", 
 					    	"text":"Es una oportunidad en donde puedo compartir de Dios con las personas que no le conocen, así  como también puedo ver cómo Dios transforma vida. Es un privilegio ser usada por Dios en este lugar."
@@ -143,7 +138,7 @@
 					    {
 					    	"name":"Mayra Marrufo",
 					    	"completeName":"MAYRA MARRUFO", 
-					    	"text":""
+					    	"text":"CASA, es la 3 decisión más importante de mi vida, es un lugar que amo y unas personas que admiro, es un lugar donde se puede sentir el amor de Dios para mi vida."
 					    },
 					    {
 					    	"name":"Violeta Garcia",
@@ -178,6 +173,12 @@
 					    {
 					    	"name":"Maria Chavez",
 					    	"completeName":"Maria Chavez", 
+					    	"text":""
+					    }
+					    ,
+					    {
+					    	"name":"Alicia Ontiveros",
+					    	"completeName":"Alicia Ontiveros", 
 					    	"text":""
 					    }
 
