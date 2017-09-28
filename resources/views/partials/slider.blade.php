@@ -1,12 +1,8 @@
     <section id="main-slider">
         <div class="owl-carousel">
-            <div class="item" style="background-image: url(images/slider/4.png);">
+            <div class="item" style="background-image: url(images/slider/bg1.jpg);">
             </div>
-             <div class="item" style="background-image: url(images/slider/2.png);">
-            </div>
-            <div class="item" style="background-image: url(images/slider/3.png);">
-            </div>
-            <div class="item" style="background-image: url(images/slider/1.png);">
+             <div class="item" style="background-image: url(images/slider/bg2.jpg);">
             </div>
         </div>
     </section>

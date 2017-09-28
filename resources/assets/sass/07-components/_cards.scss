@@ -1,3 +1,23 @@
-.img-thumbnail {
-	border: none !important;
+#contact .contact-form {
+	margin-top: 9px !important;
+}
+
+.text-container {
+	margin: 20px 4px;
+    font-size: 15px;
+}
+
+// Notices
+
+
+
+//Galery 
+
+#galeryModal .modal-body {
+	padding: 0px;
+}
+
+#galeryModal .modal-body .img-thumbnail{
+	padding: 0px;
+	border-radius: 0px;
 }

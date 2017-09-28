@@ -30,22 +30,7 @@
 
                             {!! Form::open([ 'url' => 'send-email', 'method' => 'POST']) !!}
 
-                                <div class="form-group">
-                                    {!! Form::text('name', null, ['class' => 'form-control','placeholder' => 'Nombre', 'required']) !!}
-                                </div>
-
-                                <div class="form-group">
-                                    {!! Form::email('email', null, ['class' => 'form-control','placeholder' => 'Correo electrónico', 'required']) !!}
-                                </div>
-
-                                <div class="form-group">
-                                    {!! Form::text('subject', null, ['class' => 'form-control','placeholder' => 'Asunto', 'required']) !!}
-                                </div>
-
-                                <div class="form-group">
-                                    {!! Form::textarea('msj', null, ['class' => 'form-control','placeholder' => 'Mensaje', 'required']) !!}
-
-                                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+                                @include('partials.contact.form')
 
                            {!! Form::close() !!}
 

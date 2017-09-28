@@ -123,7 +123,7 @@
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Violeta-Garcia.png') }}" alt="Dra. Patty">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/sin-foto.png') }}" alt="Dra. Patty">
                     Dra. Patty
                   </a>
                 </div>
@@ -153,7 +153,7 @@
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Violeta-Garcia.png') }}" alt="Daniela Nájera Quintero">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/sin-foto.png') }}" alt="Daniela Nájera Quintero">
                     Daniela Nájera
                   </a>
                 </div>
@@ -170,7 +170,7 @@
 
 <!-- Modal -->
     <div class="modal fade bd-example-modal-lg" tabindex="-1" id="volunterModal" role="dialog" aria-labelledby="completeNameVolunter" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="completeNameVolunter"></h5>
@@ -181,16 +181,16 @@
           <div class="modal-body">
             <div class="container-fluid">
                 <div class="row">
-                  <div class="col-md-3">
+                  <div class="">
                       <img class="img-fluid img-thumbnail img-thumbnail__circle" id="pictureVolunter" src="" alt="">
                   </div>
-                  <div class="col-md-9">
+                  <div class="text-container">
                       <p id="textVolunter"></p>
                   </div>
                 </div>
               </div>
           </div>
-  
+
         </div>
       </div>
     </div>

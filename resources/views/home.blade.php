@@ -11,13 +11,13 @@
 
 @section('content')
 
-@include('partials.slider')
-@include('partials.about')
-@include('partials.services')
-@include('partials.notices')
-@include('partials.galery')
-@include('partials.volunters')
-@include('partials.sponsors')
-@include('partials.contact')
+	@include('partials.slider')
+	@include('partials.about.section')
+	@include('partials.services')
+	@include('partials.notices.section')
+	@include('partials.galery.section')
+	@include('partials.volunters')
+	@include('partials.sponsors')
+	@include('partials.contact.section')
 
 @endsection

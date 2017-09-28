@@ -2,8 +2,19 @@
   padding: 100px 20px;
 }
 
-#sponsors {
-  padding: 100px 0px;
+#about, 
+#services,
+#blog,
+#portfolio,
+#volunters,
+#sponsors,
+#get-in-touch {
+  padding: 170px 0px  70px !important;
+}
+
+
+#main-slider {
+	padding: 25px 0;
 }
 
 #portfolio .portfolio-items {
@@ -13,5 +24,6 @@
 .pp_expand {
 	display: none !important;
 }
+
 
 

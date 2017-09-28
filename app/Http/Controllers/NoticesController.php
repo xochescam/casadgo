@@ -12,6 +12,7 @@ use App\MediaNotice;
 use Session;
 use Redirect;
 use DB;
+use Gate;
 
 class NoticesController extends Controller
 {
@@ -22,7 +23,7 @@ class NoticesController extends Controller
      */
     public function index()
     {
-        //
+        return view('partials.notices.more');
     }
 
     /**

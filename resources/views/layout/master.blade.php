@@ -26,14 +26,12 @@
 
 <body id="@yield('id')" class="@yield('class')">
 
-
-
-    @include('partials.header-public')
+    @include('partials.header')
 
     @yield('content')
 
     @include('partials.footer')
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     <script src="js/dependencies.min.js"></script>

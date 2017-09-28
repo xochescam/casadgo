@@ -21,7 +21,7 @@ class GaleryController extends Controller
      */
     public function index()
     {
-        return view('partials.more-galery');
+        return view('partials.galery.more');
     }
 
     /**

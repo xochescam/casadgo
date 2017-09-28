@@ -24,14 +24,14 @@ Route::get('/cambiar-contraseña', function () {
     return view('emails.contact');
 });
 
-
 //Login
 Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
+
 // Logout
 Route::get('/cerrar-sesion','Auth\LoginController@getLogout');
+
 //Change pass
 Route::get('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@index');
-//Change pass
 Route::post('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@update');
 
 //Route::resource('galeria', 'GaleryController');
@@ -45,6 +45,7 @@ Route::post('/subir-foto', 'GaleryController@store');
 Route::get('/editar-foto/{id}', 'GaleryController@edit');
 Route::post('/editar-foto/{id}', 'GaleryController@update');
 
+Route::get('/ver-noticias', 'NoticesController@show');
 Route::get('/crear-noticia', 'NoticesController@create');
 Route::post('/crear-noticia', 'NoticesController@store');
 
@@ -52,15 +53,14 @@ Route::post('/send-email', 'EmailController@send');
 
 
 // PUBLIC
-
 Route::get('/nosotros', function () {
-    return view('partials.more-about');
+    return view('partials.about.more');
 });
 
 Route::get('/noticias', function () {
-    return view('partials.more-notices');
+    return view('partials.notices.more');
 });
 
 Route::get('/galeria', function () {
-    return view('partials.more-galery');
+    return view('partials.galery.more');
 });

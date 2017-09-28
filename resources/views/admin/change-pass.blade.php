@@ -12,7 +12,7 @@
 
     <div class="container">
         <div class="row row--margin">
-            <h2 class="text-center">Iniciar sesión</h2>
+            <h2 class="text-center">Cambiar contraseña</h2>
             <hr>
 
             <div class="col-md-6 col-md-offset-3">

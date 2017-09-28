@@ -12,9 +12,6 @@
     
     <div class="container">
         <div class="row row--margin">
-
-            <a href="{{ url('/cerrar-sesion') }}">Cerrar sesión</a>
-            <a href="{{ url('/cambiar-contrasena',Auth::user()->id) }}">Cambiar contraseña</a>
             
             <h2 class="text-center">Subir foto</h2>
             <hr>
