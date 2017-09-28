@@ -9,116 +9,158 @@
               <div class="row text-center text-lg-left">
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Aaron-Amador.png') }}" alt="Aaron Amador">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Aaron-Amador.png') }}" alt="Aaron Amador">
                     Aaron Amador
                   </a >
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Anabell.png') }}" alt="Anabell">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Anabell.png') }}" alt="Anabell">
                     Anabell
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Antonio-Luna.png') }}" alt="Antonio Luna">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Antonio-Luna.png') }}" alt="Antonio Luna">
                     Antonio Luna
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Areli-Gurrola.png') }}" alt="Areli Gurrola">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Areli-Gurrola.png') }}" alt="Areli Gurrola">
                     Areli Gurrola
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Balvina-Villegas.png') }}" alt="Balvina Villegas">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Balvina-Villegas.png') }}" alt="Balvina Villegas">
                     Balvina Villegas
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Betty-Grace.png') }}" alt="Betty Grace">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Betty-Grace.png') }}" alt="Betty Grace">
                     Betty Grace
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Brisia-Olivas.png') }}" alt="Brisia Olivas">
-                    Brisia Olivas
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Brissia-Olivas.png') }}" alt="Brissia Olivas">
+                    Brissia Olivas
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Eberth-Tavarez.png') }}" alt="Eberth Tavarez">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Eberth-Tavarez.png') }}" alt="Eberth Tavarez">
                     Eberth Tavarez
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Edgar-Morales.png') }}" alt="Edgar Morales">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Edgar-Morales.png') }}" alt="Edgar Morales">
                     Edgar Morales
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Jorge-Ponce.png') }}" alt="Jorge Ponce">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Jorge-Ponce.png') }}" alt="Jorge Ponce">
                     Jorge Ponce
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Lourdes-Sanchez.png') }}" alt="Lourdes Sanchez">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Lourdes-Sanchez.png') }}" alt="Lourdes Sanchez">
                     Lourdes Sanchez
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Maria-Chavez.png') }}" alt="Maria Chavez">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Maria-Chavez.png') }}" alt="Maria Chavez">
                     Maria Chavez
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Mayra-Marrufo.png') }}" alt="Mayra Marrufo">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Mayra-Marrufo.png') }}" alt="Mayra Marrufo">
                     Mayra Marrufo
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Norma-Mendoza.png') }}" alt="Norma Mendoza">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Norma-Mendoza.png') }}" alt="Norma Mendoza">
                     Norma Mendoza
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6" data-toggle="modal" data-target="#volunterModal">
                   <a class="d-block mb-4 h-100 voluter">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Olga-Martinez.png') }}" alt="Olga Martinez">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Olga-Martinez.png') }}" alt="Olga Martinez">
                     Olga Martinez
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Rigoberto-Medina.png') }}" alt="Rigoberto Medina">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Rigoberto-Medina.png') }}" alt="Rigoberto Medina">
                     Rigoberto Medina
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Silvia-Gutierrez.png') }}" alt="Silvia Gutierrez">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Silvia-Gutierrez.png') }}" alt="Silvia Gutierrez">
                     Silvia Gutierrez
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Vero-Alanis.png') }}" alt="Vero Alanis">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Vero-Alanis.png') }}" alt="Vero Alanis">
                     Vero Alanis
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/thumbs/Violeta-Garcia.png') }}" alt="Violeta Garcia">
-                    Violeta Garcia
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Violeta-Garcia.png') }}" alt="Violeta García">
+                    Violeta García
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Violeta-Garcia.png') }}" alt="Dra. Patty">
+                    Dra. Patty
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Chuyita.png') }}" alt="Chuyita">
+                    Chuyita
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Karla-Martinez.png') }}" alt="Karla Martínez Pegueros">
+                    Karla Martínez
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Ana-Lilia.png') }}" alt="Ana Lilia Lares">
+                    Ana Lilia
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Lupita-Quintero.png') }}" alt="Lupita Quintero">
+                    Lupita Quintero
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Violeta-Garcia.png') }}" alt="Daniela Nájera Quintero">
+                    Daniela Nájera
+                  </a>
+                </div>
+                <div class="col-lg-2 col-md-4 col-xs-6">
+                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
+                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Alicia-Ontiveros.png') }}" alt="Alicia Ontiveros">
+                    Alicia Ontiveros
                   </a>
                 </div>
               </div>
