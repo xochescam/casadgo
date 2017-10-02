@@ -1,5 +1,11 @@
 footer {
+	padding-top: 38px !important;
+    padding-bottom: 38px !important;
     position: absolute;
     bottom: 0;
     width: 100%;
+
+    & ul {
+    	margin-bottom: 0px !important;
+    }
 }

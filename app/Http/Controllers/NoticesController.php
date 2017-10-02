@@ -73,9 +73,7 @@ class NoticesController extends Controller
      */
     public function show($id)
     {
-        if (Gate::denies('show.notice')) {
-            abort(403);
-        }
+        return view('partials.notices.read');
     }
 
     /**
