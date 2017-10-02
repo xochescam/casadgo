@@ -40,3 +40,13 @@
     margin: auto;
     width: 290px;
 }
+
+.form--change-pass {
+    margin: auto;
+    width: 300px;
+
+    & .form-group {
+        margin: 0 !important;
+        margin-bottom: 20px !important;
+    }
+}

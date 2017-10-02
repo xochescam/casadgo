@@ -11,7 +11,7 @@
     <meta name="author" content="">
 
     <!-- CSS -->
-    <link href="css/main.min.css" rel="stylesheet" >
+    <link href="{{ url('/css/main.min.css') }}" rel="stylesheet" >
     
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -34,7 +34,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="js/dependencies.min.js"></script>
-    <script src="js/main.min.js"></script>
+    <script src="{{ url('/js/dependencies.min.js') }}"></script>
+    <script src="{{ url('/js/main.min.js') }}"></script>
 </body>
 </html>

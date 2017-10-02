@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,8 +15,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-        Schema::defaultStringLength(191);
+        Route::resourceVerbs([
+            'create' => 'crear',
+            'edit'   => 'editar',
+            'delete' => 'eliminar',
+            'show'   => 'ver'
+        ]);
+
+        Validator::extend('not_only_caps', function($attribute, $value, $parameters, $validator) {
+            return $value !== mb_strtoupper($value);
+        });
+
+        Validator::extend('not_only_lowercase', function($attribute, $value, $parameters, $validator) {
+            return $value !== mb_strtolower($value);
+        });
     }
 
     /**

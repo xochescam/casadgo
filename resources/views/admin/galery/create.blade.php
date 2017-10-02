@@ -22,7 +22,7 @@
                 @include('alerts.success')
                 @include('alerts.warning')
                 
-                {!! Form::open([ 'url' => 'subir-foto', 'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
+                {!! Form::open([ 'url' => 'galeria', 'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
                     
                     @include('admin.galery.form')
 

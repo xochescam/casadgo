@@ -2,10 +2,12 @@
 @import "03-resets/_fonts";
 
 // Base
+@import "04-base/_forms";
 @import "04-base/_typography";
 
 // Components
 @import "07-components/_cards";
+@import "07-components/_footer";
 @import "07-components/_forms";
 @import "07-components/_images";
 @import "07-components/_modal";

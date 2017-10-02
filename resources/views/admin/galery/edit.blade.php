@@ -22,7 +22,7 @@
                 @include('alerts.error')
                 @include('alerts.warning') --}}
                 
-                {!!Form::model($galery, array('url' => array('/editar-foto', $galery->id)))!!}
+                {!!Form::model($galery, array('url' => array('/galeria', $galery->id)))!!}
   
                     @include('admin.galery.form')
 

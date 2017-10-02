@@ -15,46 +15,38 @@
             <h2 class="text-center">Cambiar contraseña</h2>
             <hr>
 
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-8 form_parent">
 
-                <div class='alert_container--login'>
-                    @include('alerts.error')
-                    @include('alerts.success')
-                    @include('alerts.warning')
-                </div>
+                @include('alerts.success')
+                @include('alerts.error')
+                @include('alerts.warning')
                 
-
-                {!! Form::open(['url'=>['cambiar-contrasena',Auth::user()->id], 'method' => 'POST', 'class' => 'form-login']) !!}
+                {!! Form::open(['url'=>['cambiar-contrasena',Auth::user()->id],  'method' => 'POST', 'class' => 'form-horizontal form form--change-pass', 'files' => 'true']) !!}
                     
-                    <div class="form-group">
-                        {!! Form::label('current_pass', 'Contraseña actual:',['class' => 'col-sm-2 col-form-label']) !!}
-                        <div class="col-sm-10">
-                          {!! Form::password('current_pass', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
+                      <div class="form-group">
+                        {!! Form::label('current_pass', 'Contraseña actual:') !!}
+                        {!! Form::password('current_pass', null, ['class' => 'form-control']) !!}
+                      </div>
 
-                    <div class="form-group">
-                        {!! Form::label('new_pass', 'Nueva contraseña:',['class' => 'col-sm-2 col-form-label']) !!} 
-                        <div class="col-sm-10">
-                          {!! Form::password('new_pass', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
+                      <div class="form-group">
+                        {!! Form::label('new_pass', 'Nueva contraseña:') !!}
+                        {!! Form::password('new_pass', null, ['class' => 'form-control']) !!}
+                      </div>
 
-                    <div class="form-group">
-                        {!! Form::label('confirm_new_pass', 'Confirmar nueva contraseña:',['class' => 'col-sm-2 col-form-label']) !!} 
-                        <div class="col-sm-10">
-                          {!! Form::password('confirm_new_pass', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                        
-                    <div class="text-center med-margin-top">
+                       <div class="form-group">
+                        {!! Form::label('new_pass', 'Confirmar nueva contraseña:') !!}
+                        {!! Form::password('new_pass', null, ['class' => 'form-control']) !!}
+                      </div>
+
+                      <div class="text-center med-margin-top">
                         <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                    </div>  
-  
+                      </div>  
+                      
+
                 {!! Form::close() !!}
-            </div>
+  
+            </div>  
         </div>  
     </div>
-
   
 @endsection

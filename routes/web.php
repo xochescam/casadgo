@@ -34,22 +34,11 @@ Route::get('/cerrar-sesion','Auth\LoginController@getLogout');
 Route::get('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@index');
 Route::post('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@update');
 
-//Route::resource('galeria', 'GaleryController');
+Route::resource('galeria', 'GaleryController');
 
-//Route::resource('noticias', 'NoticesController');
+Route::resource('noticia', 'NoticesController');
 
-Route::get('/ver-fotos', 'GaleryController@show');
-Route::get('/subir-foto', 'GaleryController@create');
-Route::post('/subir-foto', 'GaleryController@store');
-
-Route::get('/editar-foto/{id}', 'GaleryController@edit');
-Route::post('/editar-foto/{id}', 'GaleryController@update');
-
-Route::get('/ver-noticias', 'NoticesController@show');
-Route::get('/crear-noticia', 'NoticesController@create');
-Route::post('/crear-noticia', 'NoticesController@store');
-
-Route::post('/send-email', 'EmailController@send');
+// Route::post('/send-email', 'EmailController@send');
 
 
 // PUBLIC

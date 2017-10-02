@@ -24,7 +24,7 @@
                 @include('alerts.error')
                 @include('alerts.warning')
                 
-                {!! Form::open(['url' => 'crear-noticia',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
+                {!! Form::open(['url' => 'noticia',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
                     
                     @include('admin.notices.form')
 
