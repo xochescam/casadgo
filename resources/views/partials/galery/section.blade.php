@@ -5,48 +5,48 @@
           <p class="text-center wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
       </div>
 
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/1.jpg') }}">
         </a >
       </div>
       
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/2.jpg') }}">
         </a >
       </div>
       
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal" >
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal" >
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/3.jpg') }}">
         </a >
       </div>
 
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/4.jpg') }}">
         </a>
       </div>
 
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/5.jpg') }}">
         </a>
       </div>
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/6.jpg') }}">
         </a>
       </div>
 
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/7.jpg') }}">
         </a>
       </div>
 
-      <div class="col-lg-3 col-md-4 col-xs-6" data-toggle="modal" data-target="#galeryModal">
+      <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
         <a class="d-block mb-4 h-100">
           <img class="img-fluid img-thumbnail" src="{{ url('/images/galeria/8.jpg') }}">
         </a>
