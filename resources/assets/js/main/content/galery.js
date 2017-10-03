@@ -5,10 +5,17 @@
         return;
     }
 
-    const items = document.querySelectorAll('.galery-item');
+    const items       = document.querySelectorAll('.galery-item');
+    const modalTitle = modal.querySelector('#modalTitle');
+    const modalImg   = modal.querySelector('#modalImg');
 
     function openModal(e) {
-    	console.log(e.currentTarget);
+    	const img = e.currentTarget.querySelector('img');
+
+        modalTitle.innerText = img.getAttibute('data-title');
+        modalImg.src         = img.src;
+
+        return;
     }
 
     Array.prototype.forEach.call(items, (item) => {
