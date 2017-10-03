@@ -18,6 +18,10 @@ class Media extends Model
         return $this->hasOne('App\Galery');
     }
 
+    public function notice(){
+        return $this->belongsToMany('\App\Notice','media_notices');
+    }
+
 	public static function saveNoticeOrImage($request, $type, $noticeId){
 
 		if($type == 'notices') {

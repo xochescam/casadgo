@@ -19,5 +19,5 @@
 	@include('partials.volunters')
 	@include('partials.sponsors')
 	@include('partials.contact.section')
-
+	
 @endsection

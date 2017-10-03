@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
 
+use Carbon\Carbon;
+
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -29,6 +33,8 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('not_only_lowercase', function($attribute, $value, $parameters, $validator) {
             return $value !== mb_strtolower($value);
         });
+
+        Carbon::setLocale(config('app.locale'));
     }
 
     /**

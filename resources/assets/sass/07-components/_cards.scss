@@ -12,12 +12,48 @@
 
 
 //Galery 
-
+#noticeModal .modal-body, 
 #galeryModal .modal-body {
 	padding: 0px;
 }
 
+#noticeModal .modal-body .img-thumbnail,
 #galeryModal .modal-body .img-thumbnail{
 	padding: 0px;
 	border-radius: 0px;
+}
+
+.notice-container img {
+	cursor: pointer;
+	height: auto;
+    margin-bottom: 20px;
+	width: 100%;
+}
+
+.notice-container iframe {
+    height: auto !important;
+    margin-bottom: 20px;
+    width: 100% !important;
+}
+
+.entry-thumbnail--default img {
+	max-width: 230px;
+    width: 100%;
+}
+
+.entry-thumbnail--main iframe,
+.entry-thumbnail--main img {
+	height: none;
+	width: 100% !important;
+}
+
+.ellipsis {
+    display: -webkit-box;
+    max-width: 420px;
+    height: 116px;
+    margin: 0 auto;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

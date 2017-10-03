@@ -23,6 +23,7 @@ class NoticesController extends Controller
      */
     public function index()
     {
+
         return view('partials.notices.more');
     }
 
@@ -73,7 +74,10 @@ class NoticesController extends Controller
      */
     public function show($id)
     {
-        return view('partials.notices.read');
+        $notice = Notice::findOrFail($id);
+        $type   = $notice->media->groupBy('type');
+        
+        return view('partials.notices.read',compact('notice','type'));
     }
 
     /**

@@ -20,6 +20,10 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
         $this->call(RoleUserTableSeeder::class);
+        $this->call(MediaTableSeeder::class);
+        $this->call(GaleryTableSeeder::class);
+        $this->call(NoticeTableSeeder::class);
+        $this->call(MediaNoticeTableSeeder::class);
 
         Model::reguard();
     }
@@ -33,6 +37,10 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->truncate();
         DB::table('role_users')->truncate();
         DB::table('permission_roles')->truncate();
+        DB::table('media')->truncate();
+        DB::table('galeries')->truncate();
+        DB::table('notices')->truncate();
+        DB::table('media_notices')->truncate();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

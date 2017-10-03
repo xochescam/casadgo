@@ -14,7 +14,7 @@ class Galery extends Model
 
 	public function media()
     {
-        return $this->belongsTo('App\Media');
+        return $this->belongsTo('App\Media','media_id');
     }
 
 	public static function saveData($request){

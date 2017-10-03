@@ -11,6 +11,10 @@ class Notice extends Model
 	protected $table = 'notices';
 	protected $fillable = ['id', 'title', 'description', 'date'];
 
+    public function media(){
+        return $this->belongsToMany('\App\Media','media_notices');
+    }
+
 	public static function saveData($request){
 
 		$noticeData = new Notice;

@@ -11,7 +11,7 @@ class PermissionRoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $rolesList = [
+        $permissionList = [
             [
                 // 1
                 'permission_id' => '1',
@@ -55,10 +55,10 @@ class PermissionRoleTableSeeder extends Seeder
 
         ];
 
-        foreach ($rolesList as $role) {
+        foreach ($permissionList as $permission) {
             DB::table('permission_roles')->insert([
-                'permission_id' => $role['permission_id'],
-                'role_id' => $role['role_id']
+                'permission_id' => $permission['permission_id'],
+                'role_id' => $permission['role_id']
             ]);
         }
     }
