@@ -11,7 +11,12 @@
     <meta name="author" content="">
 
     <!-- CSS -->
-    <link href="{{ url('/css/main.min.css') }}" rel="stylesheet" >
+    @if (config('app.env') === 'local')
+        <link rel="stylesheet" href="{{ asset('css/main.min.css') }}">
+
+    @else
+        <link rel="stylesheet" href="{{ asset('css/main.min.' . config('cache.css.main') . '.css') }}">
+    @endif
     
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
@@ -34,7 +39,15 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script src="{{ url('/js/dependencies.min.js') }}"></script>
-    <script src="{{ url('/js/main.min.js') }}"></script>
+
+    @if (config('app.env') === 'local')
+        <script src="{{ asset('js/dependencies.min.js') }}"></script>
+        <script src="{{ asset('js/main.min.js') }}"></script>
+
+    @else
+        <script src="{{ asset('js/dependencies.min.'. config('cache.js.dependencies') . '.js') }}"></script>
+        <script src="{{ asset('js/main.min.'. config('cache.js.main') . '.js') }}"></script>
+    @endif
+
 </body>
 </html>

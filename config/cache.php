@@ -1,7 +1,27 @@
 <?php
 
 return [
+    /*
+    |--------------------------------------------------------------------------
+    | Custom: Assets Cache Versions
+    |--------------------------------------------------------------------------
+    |
+    | The values in this section will be appended to the filename of the
+    | assets in each of the url requests. This is helpful to override
+    | browser cache forcing the client to display the changes made.
+    |
+    */
 
+    'css' => [
+        'main' => 1
+    ],
+
+    'js' => [
+        'admin'        => 1,
+        'dependencies' => 1,
+        'main'         => 1,
+    ],
+    
     /*
     |--------------------------------------------------------------------------
     | Default Cache Store
