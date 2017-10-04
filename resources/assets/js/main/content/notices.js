@@ -1,11 +1,11 @@
  (function() {
 	const clase = document.querySelector('body').className;
 
-    if (clase !== 'homepage') {
+    if (clase !== 'more-notices') {
         return;
     }
 
-    const items      = document.querySelectorAll('.galery-item');
+    const items      = document.querySelectorAll('.notices-item');
     const modalTitle = document.querySelector('#modalTitle');
     const modalImg   = document.querySelector('#modalImg');
 

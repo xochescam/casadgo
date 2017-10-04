@@ -19,23 +19,19 @@ class ContentController extends Controller
     public function home()
     {
 
-
-
-
         $carbon = Carbon::parse('2017-05-12')->diffForHumans();
 
-
     	$galery     = Galery::with('media')->get()->reverse()->take(8);
-    	$allNotices = Notice::with('media')->get();
-        $lastNotice = $allNotices->last();
+    	$notices = Notice::with('media')->get()->reverse()->take(3);
+        //$lastNotice = $allNotices->last();
 
-        $notices = $allNotices->filter(function ($value, $key) use ($lastNotice) {
+        // $notices = $allNotices->filter(function ($value, $key) use ($lastNotice) {
 
-            return $value->id != $lastNotice->id;
+        //     return $value->id != $lastNotice->id;
 
-        })->reverse()->take(2);
+        // })->reverse()->take(2);
 
-		return view('home',compact('galery','notices','lastNotice'));
+		return view('home',compact('galery','notices'));
         
     }
 }

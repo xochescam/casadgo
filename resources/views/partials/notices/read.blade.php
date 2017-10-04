@@ -34,8 +34,8 @@
 
             @foreach($type['img'] as $img)
 
-            <div class="notice-container" data-toggle="modal" data-target="#noticeModal">
-                <img src="{{ url($img->url) }}" alt="{{ $img->name }}">
+            <div class="notice-container notices-item" data-toggle="modal" data-target="#noticeModal">
+                <img src="{{ url($img->url) }}" alt="{{ $img->name }}" data-title="{{ $img->name }}">
             </div>
               
             @endforeach

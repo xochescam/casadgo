@@ -25,21 +25,26 @@ class MediaNoticeTableSeeder extends Seeder
             [
                 // 1
                 'media_id'  => '11',
-                'notice_id' => '2'
+                'notice_id' => '3'
             ],
             [
                 // 1
                 'media_id'  => '12',
-                'notice_id' => '2'
+                'notice_id' => '3'
             ],
             [
                 // 1
                 'media_id'  => '13',
-                'notice_id' => '2'
+                'notice_id' => '3'
             ],
             [
                 // 1
                 'media_id'  => '14',
+                'notice_id' => '3'
+            ],
+            [
+                // 1
+                'media_id'  => '15',
                 'notice_id' => '2'
             ],
         ];

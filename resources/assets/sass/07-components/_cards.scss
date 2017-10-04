@@ -21,6 +21,7 @@
 #galeryModal .modal-body .img-thumbnail{
 	padding: 0px;
 	border-radius: 0px;
+    width: 100%;
 }
 
 .notice-container img {
@@ -50,10 +51,18 @@
 .ellipsis {
     display: -webkit-box;
     max-width: 420px;
-    height: 116px;
+    height: 60px;
     margin: 0 auto;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.entry-content {
+    height: auto;
+}
+
+.show-more a {
+    margin-top: 20px;
 }

@@ -96,6 +96,12 @@ class MediaTableSeeder extends Seeder
                 'url' 		 => 'storage/notices/tapaton-2016/4.jpg',
                 'type'    	 => 'img'
             ],
+            [
+                // 15
+                'name'       => '1',
+                'url'        => 'storage/notices/ultra-bombon/1.png',
+                'type'       => 'img'
+            ],
         ];
 
         foreach ($mediaList as $media) {
