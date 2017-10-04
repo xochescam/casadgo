@@ -3,7 +3,9 @@
 	const classModule = document.querySelector('body').className;
 
     if (classModule !== 'homepage') {
-        
+
+        alert();
+
         const listOfLi     = document.querySelectorAll('.navbar-nav a');
         const url          = window.location.href.split("/", 3).join("/");
         const sectionTitle = document.querySelector('.section-title');
