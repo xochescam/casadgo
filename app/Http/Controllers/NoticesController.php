@@ -62,7 +62,7 @@ class NoticesController extends Controller
         
         if($save) {
             Session::flash('message','Guardada correctamente');
-            return Redirect::to('/crear-noticia');
+            return Redirect::to('/noticia/crear');
         }
     }
 

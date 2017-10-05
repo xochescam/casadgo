@@ -775,9 +775,9 @@ ul.nostyle i {
 }
 #get-in-touch {
   padding: 100px 0 50px;
-  background-image: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
-  background-image: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
-  background-image: -ms-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%);
+  background-image: -moz-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%) !important;
+  background-image: -webkit-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%) !important;
+  background-image: -ms-linear-gradient(90deg, #2caab3 0%, #2c8cb3 100%) !important;
   color: #fff;
 }
 #get-in-touch h1,

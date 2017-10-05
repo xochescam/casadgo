@@ -13,13 +13,12 @@ return [
     */
 
     'css' => [
-        'main' => 1
+        'main' => 2
     ],
 
     'js' => [
-        'admin'        => 1,
         'dependencies' => 1,
-        'main'         => 1,
+        'main'         => 2,
     ],
     
     /*

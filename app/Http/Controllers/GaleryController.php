@@ -58,7 +58,7 @@ class GaleryController extends Controller
 
         if($save) {
             Session::flash('message','Guardada correctamente');
-            return Redirect::to('/subir-foto');
+            return Redirect::to('/galeria/crear');
         }
     }
 
@@ -74,7 +74,6 @@ class GaleryController extends Controller
             abort(403);
         }
         
-        return view('admin.galery.read');
     }
 
     /**

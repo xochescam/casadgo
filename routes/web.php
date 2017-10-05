@@ -12,7 +12,7 @@
 */
 
 // Home
-Route::get('/', 'contentController@home');
+Route::get('/', 'ContentController@home');
 
 // ADMIN
 Route::get('/admin', function () {

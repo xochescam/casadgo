@@ -34,7 +34,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/subir-foto';
+    protected $redirectTo = '/galeria/crear';
 
     /**
      * Create a new controller instance.
@@ -78,7 +78,7 @@ class LoginController extends Controller
             return redirect('/admin');
         }
 
-        return redirect('/subir-foto');
+        return redirect('/galeria/crear');
     }
 
 
@@ -98,7 +98,7 @@ class LoginController extends Controller
     {
 
         $routes = [
-            1 => '/subir-foto', //admin
+            1 => '/galeria/crear', //admin
         ];
 
         return $routes[$role];
