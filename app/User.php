@@ -34,6 +34,11 @@ class User extends Authenticatable
     }
 
 
+    public function notice()
+    {
+        return $this->belongsTo('App\Notice');
+    }
+
     /*
     |--------------------------------------------------------------------------
     | ACL

@@ -9,10 +9,15 @@ use App\Media;
 class Notice extends Model
 {
 	protected $table = 'notices';
-	protected $fillable = ['id', 'title', 'description', 'date'];
+	protected $fillable = ['id', 'title', 'description', 'date', 'user_id'];
 
     public function media(){
         return $this->belongsToMany('\App\Media','media_notices');
+    }
+
+    public function user()
+    {
+        return $this->hasOne('App\User');
     }
 
 	public static function saveData($request){
