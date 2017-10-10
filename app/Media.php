@@ -26,62 +26,77 @@ class Media extends Model
 
 		if($type == 'notices') {
 
-			foreach ($request->img as $fileKey => $fileValue) {
+                  $nameFolder = str_replace(" ","-", $request->title).'/';
 
-				$save = Media::saveFile($fileKey, $fileValue, $type);
+			foreach ($request->img as $imgKey => $imgValue) {
 
-        		$mediaNotice = MediaNotice::saveData($save->id, $noticeId);
+				$saveImage = Media::saveImg($imgKey, $imgValue, $type, $nameFolder);
+
+        		      $mediaNotice = MediaNotice::saveData($saveImage->id, $noticeId);
 			}
+
+                  foreach ($request->videos as $videoKey => $videoValue) {
+
+                        $saveVideo = Media::saveVideo(1, $videoValue);
+
+                        $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeId);
+                  }
+
 
 			return 'true';
 
 		} else {
 
-			$save = Media::saveFile(1, $request->img, $type);
+			$save = Media::saveImg(1, $request->img, $type, null);
 
 			return $save;
 		}
     }
 
 
-    public static function saveFile($key, $img, $type) {
+      public static function saveVideo($key, $video) {
 
-			$typeMedia = explode("/", $img->getClientMimeType());
+            $file = new Media;
 
-			if($typeMedia[0] == 'image') {
+            $file->name = $key;
+            $file->url  = $video;
+            $file->type = 'video';
 
-				$typeFile = 'img';
+            $file->save();
 
-			} else {
+            return $file;
+      }
 
-				$typeFile = 'video';
-			}
+      public static function saveImg($key, $img, $type, $nameFolder) {
 
+		$file = new Media;
 
-			$file = new Media;
+	      $file->name = $key;
+            $file->url  = 'default';
+	      $file->type = 'img';
 
-	        $file->name = $key;
-	        $file->url  = '/'.$type.'/';
-	        $file->type = $typeFile;
-	        $file->save();
+	      $file->save();
 
+		$now 		= Carbon::now()->toDateTimeString();
+		$doblepoint = str_replace(":", "", $now);
+		$middle     = str_replace("-", "", $doblepoint);
+		$name       = str_replace(" ", "", $middle);
 
-			$now 		= Carbon::now()->toDateTimeString();
-			$doblepoint = str_replace(":", "", $now);
-			$middle     = str_replace("-", "", $doblepoint);
-			$name       = str_replace(" ", "", $middle);
+		if($img != null){
+                  $originalNameImg = $img->getClientOriginalName();
+                  $extFiles 	     =  strtolower(pathinfo($originalNameImg, PATHINFO_EXTENSION));
+                  $newNameFiles    = $name."_".$file->id.".".$extFiles;
+                  $route           = $type == 'galery' ?
+                                          $type.'/'.$newNameFiles :
+                                          $type.'/'.$nameFolder.$newNameFiles;
 
-			if($img != null){
-	            $originalNameFiles = $img->getClientOriginalName();
-	            $extFiles 		   =  strtolower(pathinfo($originalNameFiles, PATHINFO_EXTENSION));
-	            $newNameFiles 	   = $name."_".$file->id.".".$extFiles;
+                  \Storage::disk('local')->put($route,  \File::get($img));
+	      }
 
-	            \Storage::disk('local')->put($type."/".$newNameFiles,  \File::get($img));
-	        }
+            $file->url  = 'storage/'.$route;
+		$file->name = $newNameFiles;
+		$file->save();
 
-			$file->name = $newNameFiles;
-			$file->save();
-
-			return $file;
+		return $file;
     }
 }

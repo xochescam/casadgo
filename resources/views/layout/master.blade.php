@@ -43,9 +43,11 @@
     @if (config('app.env') === 'local')
         <script src="{{ asset('js/dependencies.min.js') }}"></script>
         <script src="{{ asset('js/main.min.js') }}"></script>
+        <script src="{{ asset('js/admin.min.js') }}"></script>
     @else
         <script src="{{ asset('js/dependencies.min.'. config('cache.js.dependencies') . '.js') }}"></script>
         <script src="{{ asset('js/main.min.'. config('cache.js.main') . '.js') }}"></script>
+        <script src="{{ asset('js/admin.min.'. config('cache.js.main') . '.js') }}"></script>
     @endif
 
 </body>

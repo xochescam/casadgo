@@ -31,6 +31,6 @@ class EmailController extends Controller
 
         Session::flash('message','Enviado correctamente');
         return Redirect::to('#contacto');
-        
+
     }
 }

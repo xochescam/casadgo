@@ -24,10 +24,10 @@ class NoticeRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'       => 'required',
-            'description' => 'required',
-            'date'        => 'required|date_format:d/m/Y',
-            'img'         => 'required|image:jpeg,jpg,gif,png',
+            //'title'       => 'required',
+            //'description' => 'required',
+            //'date'        => 'required|date_format:d/m/Y',
+            //'img'         => 'required|image:jpeg,jpg,gif,png',
         ];
     }
 }

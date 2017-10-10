@@ -53,13 +53,13 @@ class NoticesController extends Controller
         if (Gate::denies('create.notice')) {
             abort(403);
         }
-        
+
         $save = DB::transaction(function () use ($request) {
             $fileData = Notice::saveData($request);
             return $fileData;
         });
 
-        
+
         if($save) {
             Session::flash('message','Guardada correctamente');
             return Redirect::to('/noticia/crear');
@@ -76,7 +76,7 @@ class NoticesController extends Controller
     {
         $notice = Notice::findOrFail($id);
         $type   = $notice->media->groupBy('type');
-        
+
         return view('partials.notices.read',compact('notice','type'));
     }
 

@@ -11,11 +11,11 @@ class MediaNotice extends Model
 
 	public static function saveData($fileId, $noticeId){
 
-		$mediaNotice = new MediaNotice;
+            $mediaNotice = new MediaNotice;
 
-        $mediaNotice->media_id  = $fileId;
-        $mediaNotice->notice_id = $noticeId;
-        
-        $mediaNotice->save();
+            $mediaNotice->media_id  = $fileId;
+            $mediaNotice->notice_id = $noticeId;
+
+            $mediaNotice->save();
     }
 }

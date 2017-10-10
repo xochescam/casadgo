@@ -27,6 +27,7 @@ mix.options({
  */
 
 mix.js('resources/assets/js/main/main.min.js', 'public/js');
+mix.js('resources/assets/js/main/admin/admin.min.js', 'public/js');
 
 //Scripts Dependencies
 mix.scripts([

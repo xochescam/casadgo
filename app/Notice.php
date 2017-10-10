@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Media;
+use Auth;
 
 class Notice extends Model
 {
@@ -27,6 +28,7 @@ class Notice extends Model
         $noticeData->title       = $request->title;
         $noticeData->description = $request->description;
         $noticeData->date        = $request->date;
+        $noticeData->user_id     = Auth::User()->id;
         $noticeData->save();
 
         $files = Media::saveNoticeOrImage($request, 'notices', $noticeData->id);
