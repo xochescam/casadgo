@@ -24,11 +24,11 @@ class Media extends Model
       return $this->belongsToMany('\App\Notice','media_notices');
     }
 
-	public static function saveNoticeOrImage($request, $type, $noticeId){
+	public static function saveVideoOrImage($request, $type, $noticeId){
 
-		if($type == 'notices') {
+		if($type == 'notices/') {
 
-      $nameFolder = 'notices/'.str_replace(" ","-", $request->title).'/';
+      $nameFolder = $type.str_replace(" ","-", $request->title).'/';
 
 			foreach ($request->img as $imgKey => $imgValue) {
 
@@ -46,7 +46,9 @@ class Media extends Model
 
 		} else {
 
-			$save = Media::saveImg(1, $request->img, 'galeries/');
+			//$save = Media::saveImg(1, $request->img, $type);
+
+      $save = Media::saveVideo(1, $request->video);
 
 			return $save;
 		}

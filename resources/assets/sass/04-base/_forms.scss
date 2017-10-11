@@ -24,6 +24,18 @@ input[type="password"] {
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 
-i {
-   margin-right: 5px;
+.radio-group {
+    float: right !important;
+    margin: auto !important;
+    padding: 20px 0px;
+    text-align: center;
+
+    & label {
+        display: inline-block;
+        margin-right: 20px;
+    }
+
+    & input {
+        margin-right: 5px !important;
+    }
 }

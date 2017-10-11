@@ -19,13 +19,12 @@ class Galery extends Model
 
 	public static function saveData($request){
 
-		$file = Media::saveNoticeOrImage($request, 'galery', 0);
+		$file = Media::saveVideoOrImage($request, 'galery/', 0);
 
 		$galeryData = new Galery;
 
-        $galeryData->title        = $request->title;
-        $galeryData->description = $request->description;
-        $galeryData->media_id    = $file->id;
+        $galeryData->title    = $request->title;
+        $galeryData->media_id = $file->id;
         $galeryData->save();
 
         return $galeryData;
@@ -35,7 +34,7 @@ class Galery extends Model
 
         $galeryData = Galery::findOrFail($id);
 
-        $galeryData->title        = $request->title;
+        $galeryData->title       = $request->title;
         $galeryData->description = $request->description;;
         $galeryData->save();
 

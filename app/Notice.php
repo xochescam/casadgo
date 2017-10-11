@@ -31,7 +31,7 @@ class Notice extends Model
         $noticeData->user_id     = Auth::User()->id;
         $noticeData->save();
 
-        $files = Media::saveNoticeOrImage($request, 'notices', $noticeData->id);
+        $files = Media::saveVideoOrImage($request, 'notices/', $noticeData->id);
 
         return $files;
     }
