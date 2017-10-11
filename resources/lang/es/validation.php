@@ -88,8 +88,8 @@ return [
     */
 
     'custom' => [
-        'institution' => [
-            'required' => 'El campo :attribute es obligatorio.',
+        'date' => [
+            'date_format' => 'El campo :attribute no corresponde con el formato de fecha ej. 01/01/2017.',
         ],
     ],
 
@@ -117,7 +117,6 @@ return [
         'current_pass'     => 'Contraseña actual',
         'new_pass'         => 'Confirmar contraseña',
         'confirm_new_pass' => 'Confirmar nueva contraseña'
-
     ],
 
 ];

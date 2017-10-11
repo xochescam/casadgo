@@ -49,6 +49,7 @@ class NoticesController extends Controller
      */
     public function store(NoticeRequest $request)
     {
+        dd($request->date);
 
         if (Gate::denies('create.notice')) {
             abort(403);

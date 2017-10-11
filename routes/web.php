@@ -10,6 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+
+//     $image = Image::make('image.jpg');
+
+//     $image->crop(100, 100);
+
+//     $image->save('image2.jpg');
+
+// });
+
 
 // Home
 Route::get('/', 'ContentController@home');

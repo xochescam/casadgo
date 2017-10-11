@@ -6,10 +6,10 @@
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'notice-create')
-@section('class', 'notice-create')
+@section('class', 'admin notice-create')
 
 @section('content')
-    
+
     <div class="container container_margin--med">
         <div class="row">
             <div class="col-md-8">
@@ -19,15 +19,15 @@
                 @include('alerts.success')
                 @include('alerts.error')
                 @include('alerts.warning')
-                
+
                 {!! Form::open([ 'method' => 'POST', 'class' => 'form-horizontal', 'files' => 'true']) !!}
-                    
+
                     @include('admin.notices.form')
 
                 {!! Form::close() !!}
-  
-            </div>  
+
+            </div>
         </div>
     </div>
-  
+
 @endsection

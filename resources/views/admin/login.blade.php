@@ -6,7 +6,7 @@
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'login-module')
-@section('class', 'login-module')
+@section('class', 'admin login-module')
 
 @section('content')
 
@@ -22,10 +22,10 @@
                     @include('alerts.success')
                     @include('alerts.warning')
                 </div>
-                
+
 
                 {!! Form::open(['url' => 'iniciar-sesion', 'method' => 'POST', 'class' => 'form-login']) !!}
-                    
+
                     <div class="form-group">
                         {!! Form::label('email', 'Correo electrónico:'); !!}
                         {!! Form::email('email', null, ['placeholder' => 'correo@ejemplo.com', 'class' => 'form-control']) !!}
@@ -43,8 +43,8 @@
                     </div>
                 {!! Form::close() !!}
             </div>
-        </div>  
+        </div>
     </div>
 
-  
+
 @endsection

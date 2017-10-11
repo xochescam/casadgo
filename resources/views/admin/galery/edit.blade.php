@@ -6,10 +6,10 @@
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'galery-edit')
-@section('class', 'galery-edit')
+@section('class', 'admin galery-edit')
 
 @section('content')
-    
+
     <div class="container container_margin--med">
         <div class="row row--margin">
 
@@ -21,15 +21,15 @@
        {{--     @include('alerts.success')
                 @include('alerts.error')
                 @include('alerts.warning') --}}
-                
+
                 {!!Form::model($galery, array('url' => array('/galeria', $galery->id)))!!}
-  
+
                     @include('admin.galery.form')
 
                 {!! Form::close() !!}
-  
-            </div>  
+
+            </div>
         </div>
     </div>
-  
+
 @endsection

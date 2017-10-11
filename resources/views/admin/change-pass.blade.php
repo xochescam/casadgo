@@ -6,7 +6,7 @@
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'login-module')
-@section('class', 'login-module')
+@section('class', 'admin login-module')
 
 @section('content')
 
@@ -20,9 +20,9 @@
                 @include('alerts.success')
                 @include('alerts.error')
                 @include('alerts.warning')
-                
+
                 {!! Form::open(['url'=>['cambiar-contrasena',Auth::user()->id],  'method' => 'POST', 'class' => 'form-horizontal form form--change-pass', 'files' => 'true']) !!}
-                    
+
                       <div class="form-group">
                         {!! Form::label('current_pass', 'Contraseña actual:') !!}
                         {!! Form::password('current_pass', null, ['class' => 'form-control']) !!}
@@ -40,13 +40,13 @@
 
                       <div class="text-center med-margin-top">
                         <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
-                      </div>  
-                      
+                      </div>
+
 
                 {!! Form::close() !!}
-  
-            </div>  
-        </div>  
+
+            </div>
+        </div>
     </div>
-  
+
 @endsection

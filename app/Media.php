@@ -8,6 +8,8 @@ use Carbon\Carbon;
 
 use App\MediaNotice;
 
+use Image;
+
 class Media extends Model
 {
 	protected $table = 'media';
@@ -15,88 +17,91 @@ class Media extends Model
 
 	public function galery()
     {
-        return $this->hasOne('App\Galery');
+      return $this->hasOne('App\Galery');
     }
 
     public function notice(){
-        return $this->belongsToMany('\App\Notice','media_notices');
+      return $this->belongsToMany('\App\Notice','media_notices');
     }
 
 	public static function saveNoticeOrImage($request, $type, $noticeId){
 
 		if($type == 'notices') {
 
-                  $nameFolder = str_replace(" ","-", $request->title).'/';
+      $nameFolder = 'notices/'.str_replace(" ","-", $request->title).'/';
 
 			foreach ($request->img as $imgKey => $imgValue) {
 
-				$saveImage = Media::saveImg($imgKey, $imgValue, $type, $nameFolder);
-
-        		      $mediaNotice = MediaNotice::saveData($saveImage->id, $noticeId);
+        $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
+        $mediaNotice = MediaNotice::saveData($saveImage->id, $noticeId);
 			}
 
-                  foreach ($request->videos as $videoKey => $videoValue) {
+      foreach ($request->videos as $videoKey => $videoValue) {
 
-                        $saveVideo = Media::saveVideo(1, $videoValue);
-
-                        $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeId);
-                  }
-
+          $saveVideo   = Media::saveVideo($videoKey, $videoValue);
+          $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeId);
+      }
 
 			return 'true';
 
 		} else {
 
-			$save = Media::saveImg(1, $request->img, $type, null);
+			$save = Media::saveImg(1, $request->img, 'galeries/');
 
 			return $save;
 		}
-    }
+  }
 
 
-      public static function saveVideo($key, $video) {
+  public static function saveVideo($key, $video) {
 
-            $file = new Media;
+    $file = new Media;
 
-            $file->name = $key;
-            $file->url  = $video;
-            $file->type = 'video';
+    $file->name = $key;
+    $file->url  = $video;
+    $file->type = 'video';
 
-            $file->save();
+    $file->save();
 
-            return $file;
+    return $file;
+  }
+
+  public static function saveImg($key, $img, $nameFolder) {
+
+    $file       = new Media;
+    $file->name = $key;
+    $file->url  = 'default';
+    $file->type = 'img';
+    $file->save();
+
+    $now        = Carbon::now()->toDateTimeString();
+    $doblepoint = str_replace(":", "", $now);
+    $middle     = str_replace("-", "", $doblepoint);
+    $name       = str_replace(" ", "", $middle);
+
+		if($img != null) {
+
+      $imgName     = $img->getClientOriginalName();
+      $extImg      =  strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
+      $newImgName  = $name."_".$file->id.".".$extImg;
+      $route       = 'storage/'.$nameFolder;
+      $thumbsRoute = $route.'/thumbs/';
+
+      \Storage::disk('local')->put($nameFolder.$newImgName,  \File::get($img));
+
+      if (!file_exists($thumbsRoute)) {
+        mkdir($thumbsRoute, 0777, true);
       }
 
-      public static function saveImg($key, $img, $type, $nameFolder) {
+      $image = Image::make($route.$newImgName);
+      $image->crop(100, 100);
+      $image->save($thumbsRoute.$newImgName);
+	  }
 
-		$file = new Media;
-
-	      $file->name = $key;
-            $file->url  = 'default';
-	      $file->type = 'img';
-
-	      $file->save();
-
-		$now 		= Carbon::now()->toDateTimeString();
-		$doblepoint = str_replace(":", "", $now);
-		$middle     = str_replace("-", "", $doblepoint);
-		$name       = str_replace(" ", "", $middle);
-
-		if($img != null){
-                  $originalNameImg = $img->getClientOriginalName();
-                  $extFiles 	     =  strtolower(pathinfo($originalNameImg, PATHINFO_EXTENSION));
-                  $newNameFiles    = $name."_".$file->id.".".$extFiles;
-                  $route           = $type == 'galery' ?
-                                          $type.'/'.$newNameFiles :
-                                          $type.'/'.$nameFolder.$newNameFiles;
-
-                  \Storage::disk('local')->put($route,  \File::get($img));
-	      }
-
-            $file->url  = 'storage/'.$route;
-		$file->name = $newNameFiles;
+    $file->url  = $route;
+		$file->name = $newImgName;
 		$file->save();
 
 		return $file;
-    }
+  }
 }
