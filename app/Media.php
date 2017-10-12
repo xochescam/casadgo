@@ -24,37 +24,6 @@ class Media extends Model
       return $this->belongsToMany('\App\Notice','media_notices');
     }
 
-	public static function saveVideoOrImage($request, $type, $noticeId){
-
-		if($type == 'notices/') {
-
-      $nameFolder = $type.str_replace(" ","-", $request->title).'/';
-
-			foreach ($request->img as $imgKey => $imgValue) {
-
-        $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
-        $mediaNotice = MediaNotice::saveData($saveImage->id, $noticeId);
-			}
-
-      foreach ($request->videos as $videoKey => $videoValue) {
-
-          $saveVideo   = Media::saveVideo($videoKey, $videoValue);
-          $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeId);
-      }
-
-			return 'true';
-
-		} else {
-
-			//$save = Media::saveImg(1, $request->img, $type);
-
-      $save = Media::saveVideo(1, $request->video);
-
-			return $save;
-		}
-  }
-
-
   public static function saveVideo($key, $video) {
 
     $file = new Media;

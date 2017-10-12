@@ -19,7 +19,14 @@ class Galery extends Model
 
 	public static function saveData($request){
 
-		$file = Media::saveVideoOrImage($request, 'galery/', 0);
+        if(isset($request->img)) {
+
+            $file = Media::saveImg(1, $request->img, 'galery/');
+
+        } else {
+
+            $file = Media::saveVideo(1, $request->video);
+        }
 
 		$galeryData = new Galery;
 

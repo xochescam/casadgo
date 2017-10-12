@@ -25,8 +25,9 @@ class GaleryRequest extends FormRequest
     {
 
         return [
-            'title' => 'required', //restringir tamaño
-            //'img' => 'required' //validar
+            'title'   => 'required', //restringir tamaño
+            'img'   => 'required_if:options,imagen', //validar
+            'video' => 'required_if:options,video', //validar
         ];
     }
 }

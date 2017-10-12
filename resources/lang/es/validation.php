@@ -91,6 +91,12 @@ return [
         'date' => [
             'date_format' => 'El campo :attribute no corresponde con el formato de fecha ej. 01/01/2017.',
         ],
+        'date' => [
+            'date_format' => 'El campo :attribute no corresponde con el formato de fecha ej. 01/01/2017.',
+        ],
+        'date' => [
+            'date_format' => 'El campo de opciones es obligatorio cuando el campo es :value.',
+        ],
     ],
 
     /*
@@ -116,7 +122,9 @@ return [
         'subject'          => 'Asunto',
         'current_pass'     => 'Contraseña actual',
         'new_pass'         => 'Confirmar contraseña',
-        'confirm_new_pass' => 'Confirmar nueva contraseña'
+        'confirm_new_pass' => 'Confirmar nueva contraseña',
+        'image'            => 'Seleccionar imagen',
+        'video'            => 'Ingresar código de video',
     ],
 
 ];

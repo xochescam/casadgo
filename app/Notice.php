@@ -31,8 +31,26 @@ class Notice extends Model
         $noticeData->user_id     = Auth::User()->id;
         $noticeData->save();
 
-        $files = Media::saveVideoOrImage($request, 'notices/', $noticeData->id);
 
-        return $files;
+        $nameFolder = 'notices/'.str_replace(" ","-", $request->title).'/';
+
+        if(isset($request->img)) {
+
+            foreach ($request->img as $imgKey => $imgValue) {
+
+                $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
+                $mediaNotice = MediaNotice::saveData($saveImage->id, $noticeData->id);
+            }
+
+        } else {
+
+            foreach ($request->videos as $videoKey => $videoValue) {
+
+                $saveVideo   = Media::saveVideo($videoKey, $videoValue);
+                $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeData->id);
+            }
+        }
+
+        return 'true';
     }
 }

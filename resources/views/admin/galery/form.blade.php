@@ -7,11 +7,11 @@
 
   <div class="form-group radio-group col-sm-10 align-self-end">
     <label>
-      <input type="radio" name="options" class="options" value="1" checked="true">
+      <input type="radio" name="options" class="options" value="imagen">
       Imagen
     </label>
     <label>
-      <input type="radio" name="options" class="options" value="0">
+      <input type="radio" name="options" class="options" value="video">
         Video
     </label>
   </div>
@@ -19,9 +19,9 @@
   @if(!isset($galery->media))
 
     <div class="form-group none" id="image-container">
-      {!! Form::label('img', 'Seleccionar imagen:',['class' => 'col-sm-2 col-form-label']) !!}
+      {!! Form::label('image', 'Seleccionar imagen:',['class' => 'col-sm-2 col-form-label']) !!}
       <div class="col-sm-10">
-        <input type="file" id="img" name="img">
+        <input type="file" id="image" name="image">
         <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
       </div>
     </div>
@@ -32,10 +32,10 @@
   @endif
 
     <div class="form-group none" id="video-container">
-      {!! Form::label('video', 'Ingresar codigo de video:',['class' => 'col-sm-2 col-form-label']) !!}
+      {!! Form::label('video', 'Ingresar código de video:',['class' => 'col-sm-2 col-form-label']) !!}
 
         <div class="col-sm-10">
-          {!! Form::textarea('video', null, ['class' => 'form-control','rows' => 2]) !!}
+          {!! Form::textarea('video', null, ['class' => 'form-control','rows' => 2,'id' => 'video']) !!}
         </div>
     </div>
 

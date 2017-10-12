@@ -35,7 +35,7 @@
 
         <div class="col-sm-10 align-self-end float-right item-video">
           {!! Form::textarea('videos[]', null, ['class' => 'form-control','rows' => 2]) !!}
-          <a class="delete-item-video"=><i class="fa fa-minus"></i></a>
+          <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
         </div>
     </div>
 

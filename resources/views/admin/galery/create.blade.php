@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row row--margin">
 
-            <h2 class="text-center">Subir foto o video</h2>
+            {{-- <h2 class="text-center">Subir foto o video</h2> --}}
             <hr>
 
             <div class="col-md-8 form_parent">
