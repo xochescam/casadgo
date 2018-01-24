@@ -2,7 +2,7 @@
     <div class="container">
       <div class="section-header">
           <h2 class="section-title text-center wow fadeInDown">Galería</h2>
-          <p class="text-center wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+          <p class="text-center wow fadeInDown">Esto es parte de nuestra historia, es parte de C.A.S.A.</p>
       </div>
 
       @foreach($galery as $item)

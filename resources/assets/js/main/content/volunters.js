@@ -48,7 +48,7 @@
 					    {
 					    	"name":"Chuyita",
 					    	"completeName":"Chuyita", 
-					    	"text":"Es un lugar de paz,  de esperanza, de crecimiento y lleno de bendiciones."
+					    	"text":"Es un lugar de paz, de esperanza, de crecimiento y lleno de bendiciones."
 					    },
 					    {
 					    	"name":"Balvina Villegas",
@@ -71,11 +71,6 @@
 					    	"text":"Es una agencia de Dios para traer bendición a personas con necesidades materiales, morales y espirituales; me representa la oportunidad de ser instrumento para lograr ese propósito."
 					    },
 					    {
-					    	"name":"Olga Martinez",
-					    	"completeName":"Olga Martinez", 
-					    	"text":"Ha sido una bendición en mi vida, la oportunidad de poder servirle a Dios y de poder sembrar los principios y valores a las personas de nuestra ciudad. Ha sido un gran privilegio ser parte del equipo de C.A.S.A., siempre estará en mi corazón."
-					    },
-					    {
 					    	"name":"Antonio Luna",
 					    	"completeName":"Antonio Luna", 
 					    	"text":"El ayudar a nuestros semejantes es una tarea difícil pero muy gratificante, el dar la mano, entregando el corazón es muy hermoso, pero entregarlo todo en un solo un instante es dar la vida y CASA da todo en ese instante, siendo gratificado sólo con una sonrisa."
@@ -84,11 +79,6 @@
 					    	"name":"Brissia Olivas",
 					    	"completeName":"Brissia Olivas", 
 					    	"text":"Para mí CASA representa lo que todos aspiramos encontrar en un hogar; calma en medio de la tormenta; esperanza y fe ante la enfermedad y el dolor, el mana del cielo que alimenta no solo el cuerpo físico sino también el espíritu y el alma a través del amor y la sonrisa de sus servidores. El oído atento y compasivo que se duele con el otro colocándose en la trinchera por el bienestar físico, mental y espiritual de los usuarios."
-					    },
-					    {
-					    	"name":"Karla Martínez",
-					    	"completeName":"Karla Martínez Pegueros", 
-					    	"text":"CASA para mi es la oportunidad que me da Dios de devolver algo de lo mucho que me ha dado. Dios me dio más tiempo de vida y una sanidad, así que dono parte de ese tiempo que me dio para agradecer a El que me tiene  aquí. Aunque en realidad SIEMPRE gano más yo estando ahí ya que he conocido personas extraordinarias que me han hecho saber que no es mi tiempo es Dios el que me tiene ahí. El llegar a CASA fue realmente encontrar una familia una casa donde todos trabajamos en un mismo sentido y en un mismo canal,  AYUDAR. Gracias CASA por la oportunidad que me brindan de servir a los demás."
 					    },
 					    {
 					    	"name":"Ana Lilia",
@@ -133,22 +123,22 @@
 					    {
 					    	"name":"Mayra Marrufo",
 					    	"completeName":"Mayra Marrufo", 
-					    	"text":"CASA, es la 3 decisión más importante de mi vida, es un lugar que amo y unas personas que admiro, es un lugar donde se puede sentir el amor de Dios para mi vida."
+					    	"text":"C.A.S.A, Es la tercer decisión más importante de mi vida, es un lugar que amo, lleno de personas que admiro, es un lugar donde se puede sentir el amor de Dios para mi vida. Un privilegio que mi vida sea útil a otras vidas."
 					    },
 					    {
 					    	"name":"Violeta García",
 					    	"completeName":"Violeta García", 
-					    	"text":""
+					    	"text":"Para mí es un privilegio de servicio a Dios y a la gente que lo necesita."
 					    },
 					    {
 					    	"name":"Aaron Amador",
 					    	"completeName":"Aaron Amador", 
-					    	"text":""
+					    	"text":"C.A.S.A para mí es una oportunidad de ayudar, es un lugar que Dios bendice, que me hace sentir recibido, amado y me da la gratificación de servir a Dios, y eso me hace feliz."
 					    },
 					    {
 					    	"name":"Anabell",
 					    	"completeName":"Anabell", 
-					    	"text":""
+					    	"text":"Para mí C.A.S.A. es una oportunidad para cumplir con el propósito de Dios en mí vida, estar a su servicio ayudando al que necesita aliento, fortalece mi vida y me inspira cada día a ser una mejor persona y lograr mis metas."
 					    },
 					    {
 					    	"name":"Brisia Olivas",

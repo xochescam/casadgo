@@ -2,7 +2,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Noticias</h2>
-                <p class="text-center wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <p class="text-center wow fadeInDown">Somos una asociación civil proactiva siempre buscando la oportunidad de involucrar a la sociedad de Durango, en el ayudar a otros. Creemos que todos podemos aportar algo a favor de quien se encuentra en necesidad.</p>
             </div>
 
             <div class="row">

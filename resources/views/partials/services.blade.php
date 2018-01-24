@@ -3,7 +3,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Servicios</h2>
-                <p class="text-center wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut <br> et dolore magna aliqua. Ut enim ad minim veniam</p>
+                <p class="text-center wow fadeInDown">En C.A.S.A. es muy importante una salud mental, física y espiritual. Es por esto que que todos los servicios van enfocados a una salud integral.</p>
             </div>
 
             <div class="row">
@@ -51,7 +51,7 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Comedor</h4>
-                                <p>Comedor para las personas que tengan paciente en el Hospital Materno-Infantil y en el Centro Estatal de Cancerología.</p>
+                                <p>Comedor para todos los familiares y/o pacientes en el Hospital Materno-Infantil y en el Centro Estatal de Cancerología.</p>
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="media-body">
                                 <h4 class="media-heading">Albergue</h4>
-                                <p>Albergue temporal para niños y mujeres con cáncer que sean fuera de la ciudad.</p>
+                                <p>Albergue temporal para niños, niñas y mujeres con cáncer que sean fuera de la ciudad.</p>
                             </div>
                         </div>
                     </div>

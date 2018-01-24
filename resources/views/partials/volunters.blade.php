@@ -2,7 +2,7 @@
         <div class="container">
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Voluntarios</h2>
-                <p class="text-center wow fadeInDown">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab nesciunt quas dolor, quo maiores dolorum quae nemo</p>
+                <p class="text-center wow fadeInDown">Cada uno de los voluntarios ofrecen una arte de su vida, sus oídos y su propia experiencia de vida, todos comprometidos con amar y apoyar a quien lo necesita, capacitados todos en consejería y con una vocación de amor al prójimo.</p>
             </div>
 
             <div class="row volunters">
@@ -92,12 +92,6 @@
                     Norma Mendoza
                   </a>
                 </div>
-                <div class="col-lg-2 col-md-4 col-xs-6" data-toggle="modal" data-target="#volunterModal">
-                  <a class="d-block mb-4 h-100 voluter">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Olga-Martinez.png') }}" alt="Olga Martinez">
-                    Olga Martinez
-                  </a>
-                </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
                     <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Rigoberto-Medina.png') }}" alt="Rigoberto Medina">
@@ -132,12 +126,6 @@
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
                     <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Chuyita.png') }}" alt="Chuyita">
                     Chuyita
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-xs-6">
-                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Karla-Martinez.png') }}" alt="Karla Martínez Pegueros">
-                    Karla Martínez
                   </a>
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
