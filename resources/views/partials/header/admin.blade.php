@@ -1,10 +1,10 @@
   <div class=" navbar-toggleable-md navbar-inverse bg-invers navbar--admin">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/galeria/crear') }}">Galeria</a>
+          <a class="nav-link" href="{{ url('/admin/galeria') }}">Galeria</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/noticia/crear') }}">Noticias</a>
+          <a class="nav-link" href="{{ url('/admin/noticias') }}">Noticias</a>
         </li>
       </ul>
 

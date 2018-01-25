@@ -43,9 +43,14 @@ Route::get('/cerrar-sesion','Auth\LoginController@getLogout');
 Route::get('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@index');
 Route::post('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@update');
 
+//Galery
 Route::resource('galeria', 'GaleryController');
+Route::get('/admin/galeria', 'GaleryController@index');
+Route::delete('/admin/galeria/delete/{id}', ['as' => 'galeria.delete', 'uses' => 'GaleryController@destroy']);
 
-Route::resource('noticia', 'NoticesController');
+Route::resource('noticias', 'NoticesController');
+Route::get('/admin/noticias', 'NoticesController@index');
+Route::delete('/admin/noticias/delete/{id}', ['as' => 'noticias.delete', 'uses' => 'NoticesController@destroy']);
 
 // Route::post('/send-email', 'EmailController@send');
 

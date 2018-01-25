@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GaleryTableSeeder::class);
         $this->call(NoticeTableSeeder::class);
         $this->call(MediaNoticeTableSeeder::class);
+        $this->call(MediaGaleryTableSeeder::class);
 
         Model::reguard();
     }
@@ -41,6 +42,7 @@ class DatabaseSeeder extends Seeder
         DB::table('galeries')->truncate();
         DB::table('notices')->truncate();
         DB::table('media_notices')->truncate();
+        DB::table('media_galeries')->truncate();
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

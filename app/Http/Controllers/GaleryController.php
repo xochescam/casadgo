@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\GaleryRequest;
 use App\Galery;
+use App\MediaGalery;
 
 use Session;
 use Redirect;
@@ -21,7 +22,9 @@ class GaleryController extends Controller
      */
     public function index()
     {
-        return view('partials.galery.more');
+        $folders = Galery::get()->sortByDesc('created_at');
+
+        return view('admin.galery.list', compact('folders'));
     }
 
     /**
@@ -68,12 +71,26 @@ class GaleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
         if (Gate::denies('show.galery')) {
             abort(403);
         }
+
+        $searchItem = Galery::where('id',$id)->with('media')->get();
+
+        $item = $searchItem->mapWithKeys(function ($item) {
+
+            $media = $item->media->groupBy('type')->toArray();
+
+            return [   'id' => $item->id,
+                    'title' => $item->title,
+                    'items' => $media];
+
+            
+        })->toArray();
         
+        return view('admin.galery.show',compact('item'));
     }
 
     /**
@@ -126,5 +143,19 @@ class GaleryController extends Controller
         if (Gate::denies('delete.galery')) {
             abort(403);
         }
+
+        $searchItem = Galery::find($id);
+        $mediaGalery = MediaGalery::where('galery_id',$id)->get();
+
+        $searchItem->media()->delete();
+
+        $searchItem->delete();
+        foreach ($mediaGalery as $key => $value) {
+   
+            $value->delete();
+        }
+
+        return;
+
     }
 }

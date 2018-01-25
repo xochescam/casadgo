@@ -10,7 +10,7 @@
 
 
 @section('content')
-
+{{-- 
 	@include('partials.slider')
 	@include('partials.about.section')
 	@include('partials.services')
@@ -18,6 +18,6 @@
 	@include('partials.galery.section')
 	@include('partials.volunters')
 	@include('partials.sponsors')
-	@include('partials.contact.section')
+	@include('partials.contact.section') --}}
 	
 @endsection

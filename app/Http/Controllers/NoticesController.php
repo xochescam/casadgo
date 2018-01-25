@@ -8,11 +8,13 @@ use App\Http\Requests\NoticeRequest;
 use App\Notice;
 use App\Media;
 use App\MediaNotice;
+use Carbon\Carbon;
 
 use Session;
 use Redirect;
 use DB;
 use Gate;
+
 
 class NoticesController extends Controller
 {
@@ -23,8 +25,9 @@ class NoticesController extends Controller
      */
     public function index()
     {
+        $notices = Notice::get()->sortByDesc('created_at');
 
-        return view('partials.notices.more');
+        return view('admin.notices.list',compact('notices'));
     }
 
     /**
@@ -49,8 +52,6 @@ class NoticesController extends Controller
      */
     public function store(NoticeRequest $request)
     {
-
-
         if (Gate::denies('create.notice')) {
             abort(403);
         }
@@ -80,6 +81,7 @@ class NoticesController extends Controller
 
         return view('partials.notices.read',compact('notice','type'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -120,6 +122,17 @@ class NoticesController extends Controller
             abort(403);
         }
 
+        $searchItem = Notice::find($id);
+        $mediaNotice = MediaNotice::where('notice_id',$id)->get();
+
+        $searchItem->media()->delete();
+
+        $searchItem->delete();
+        foreach ($mediaNotice as $key => $value) {
+            $value->delete();
+        }
+
+        return;
 
     }
 }

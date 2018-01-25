@@ -16,8 +16,6 @@ class CreateGaleriesTable extends Migration
         Schema::create('galeries', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->integer('media_id')->unsigned();
-            $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');
             $table->timestamps();
         });
     }

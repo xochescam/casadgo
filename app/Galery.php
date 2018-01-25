@@ -9,12 +9,11 @@ use App\Media;
 class Galery extends Model
 {
 	protected $table = 'galeries';
-	protected $fillable = ['id', 'title', 'media_id'];
+	protected $fillable = ['id', 'title'];
 
 
-	public function media()
-    {
-        return $this->belongsTo('App\Media','media_id');
+    public function media(){
+        return $this->belongsToMany('\App\Media','media_galeries');
     }
 
 	public static function saveData($request){
@@ -31,7 +30,6 @@ class Galery extends Model
 		$galeryData = new Galery;
 
         $galeryData->title    = $request->title;
-        $galeryData->media_id = $file->id;
         $galeryData->save();
 
         return $galeryData;

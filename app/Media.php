@@ -13,11 +13,10 @@ use Image;
 class Media extends Model
 {
 	protected $table = 'media';
-	protected $fillable = ['id', 'name', 'url', 'type'];
+	protected $fillable = ['id', 'url', 'name', 'type'];
 
-	public function galery()
-    {
-      return $this->hasOne('App\Galery');
+    public function galery(){
+      return $this->belongsToMany('\App\Galery','media_galeries');
     }
 
     public function notice(){
@@ -28,8 +27,8 @@ class Media extends Model
 
     $file = new Media;
 
-    $file->name = $key;
     $file->url  = $video;
+    $file->name  = $key;
     $file->type = 'video';
 
     $file->save();
@@ -40,8 +39,8 @@ class Media extends Model
   public static function saveImg($key, $img, $nameFolder) {
 
     $file       = new Media;
-    $file->name = $key;
     $file->url  = 'default';
+    $file->name  = $key;
     $file->type = 'img';
     $file->save();
 

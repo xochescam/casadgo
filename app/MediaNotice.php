@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class MediaNotice extends Model
 {
 	protected $table = 'media_notices';
-	protected $fillable = ['media_id', 'notice_id'];
+	protected $fillable = ['id','media_id', 'notice_id'];
 
 	public static function saveData($fileId, $noticeId){
 

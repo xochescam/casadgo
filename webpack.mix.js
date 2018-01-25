@@ -38,6 +38,7 @@ mix.scripts([
     'resources/assets/js/vendor/smoothscroll.js',
     'resources/assets/js/vendor/jquery.prettyPhoto.js',
     'resources/assets/js/vendor/jquery.inview.min.js',
+    'resources/assets/js/vendor/sweetalert2.js',
     'resources/assets/js/vendor/wow.min.js',
 ], 'public/js/dependencies.min.js');
 

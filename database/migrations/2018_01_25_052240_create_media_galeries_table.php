@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaNoticesTable extends Migration
+class CreateMediaGaleriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateMediaNoticesTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_notices', function (Blueprint $table) {
+        Schema::create('media_galeries', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('media_id')->unsigned();
-            $table->foreign('media_id')->references('id')->on('media');
-            $table->integer('notice_id')->unsigned();
-            $table->foreign('notice_id')->references('id')->on('notices');
+            $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');
+            $table->integer('galery_id')->unsigned();
+            $table->foreign('galery_id')->references('id')->on('galeries')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateMediaNoticesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media_notices');
+        Schema::dropIfExists('media_galeries');
     }
 }
