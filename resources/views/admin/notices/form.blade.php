@@ -1,7 +1,7 @@
   <div class="form-group">
     {!! Form::label('title', 'Título:',['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-10">
-      {!! Form::text('title', null, ['class' => 'form-control']) !!}
+      {!! Form::text('title', null, ['class' => 'form-control', 'maxlength' => 85]) !!}
     </div>
   </div>
 
@@ -24,8 +24,8 @@
   <div class="form-group">
     {!! Form::label('img', 'Seleccionar:',['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-10">
-      <input type="file" id="img[]" name="img[]" multiple>
-      <small class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+      <input type="file" id="img[]" name="img[]" multiple="true">
+      <small class="form-text text-muted">Seleccione unicamente imagenes con formato .jpg...</small>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
     </div>
 
   <div class="col-sm-10 align-self-end float-right">
-    <a id="add-video-btn"><i class="fa fa-plus"></i>Ingresar otro video</a>
+    <a id="add-video-btn" class="add-video"><i class="fa fa-plus"></i>Ingresar otro video</a>
     <small class="small-alert none"><b> Ha llegado al limite de videos</b></small>
   </div>
 

@@ -13,9 +13,13 @@
   <div class="container">
     <div class="row row--margin">
       <div class="section-header">
-          <h1 class="section-title text-center wow fadeInDown ">Galeria</h1>
+          <h1 class="section-title text-center">Galeria</h1>
       </div>
 
+      <div class="text-right">
+         <a href="{{ route('galeria.create') }}" class="btn btn-primary" role="button" aria-pressed="true">Crear album</a>
+      </div>
+     
       <table class="table table-striped">
         <thead>
           <tr>
@@ -25,17 +29,23 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($folders as $folder)
+          @if($folders == '[]')
             <tr>
-              <th>{{ $folder->title }}</th>
-              <th>{{ $folder->date }}</th>
-              <td class="text-center">
-                <a href="{{ route('galeria.show',$folder->id) }}" class="btn btn-success " role="button" aria-pressed="true" >Ver</a>
-                <a href="{{ route('galeria.edit',$folder->id) }}" class="btn btn-info" role="button" aria-pressed="true">Editar</a>
-                <a class="btn btn-danger js-delete-galery" role="button" aria-pressed="true" data-item="{{ $folder->id }}" data-csrf="{{ csrf_token() }}">Eliminar</a>
-              </td>
+                <th colspan="3" class="text-center">Sin resultados</th>
             </tr>
-          @endforeach
+          @else     
+            @foreach($folders as $folder)
+              <tr>
+                <th>{{ $folder->title }}</th>
+                <th>{{ $folder->date }}</th>
+                <td class="text-center">
+                  <a href="{{ route('galeria.show',$folder->id) }}" class="btn btn-sm btn-success " role="button" aria-pressed="true" >Ver</a>
+                  <a href="{{ route('galeria.edit',$folder->id) }}" class="btn btn-sm btn-info" role="button" aria-pressed="true">Editar</a>
+                  <a class="btn btn-sm btn-danger js-delete-galery" role="button" aria-pressed="true" data-item="{{ $folder->id }}" data-csrf="{{ csrf_token() }}">Eliminar</a>
+                </td>
+              </tr>
+            @endforeach
+          @endif     
         </tbody>
       </table>
     </div>

@@ -14,39 +14,29 @@ class MediaNoticeTableSeeder extends Seeder
 		$mediaNoticesList = [
             [
                 // 1
-                'media_id'  => '9',
+                'media_id'  => '6',
                 'notice_id' => '1'
+            ],
+            [
+                // 1
+                'media_id'  => '7',
+                'notice_id' => '1'
+            ],
+            [
+                // 1
+                'media_id'  => '8',
+                'notice_id' => '3'
+            ],
+            [
+                // 1
+                'media_id'  => '9',
+                'notice_id' => '3'
             ],
             [
                 // 1
                 'media_id'  => '10',
-                'notice_id' => '1'
-            ],
-            [
-                // 1
-                'media_id'  => '11',
-                'notice_id' => '3'
-            ],
-            [
-                // 1
-                'media_id'  => '12',
-                'notice_id' => '3'
-            ],
-            [
-                // 1
-                'media_id'  => '13',
-                'notice_id' => '3'
-            ],
-            [
-                // 1
-                'media_id'  => '14',
-                'notice_id' => '3'
-            ],
-            [
-                // 1
-                'media_id'  => '15',
                 'notice_id' => '2'
-            ],
+            ]
         ];
 
         foreach ($mediaNoticesList as $mediaNotice) {

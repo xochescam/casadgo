@@ -12,9 +12,9 @@
 
     <div class="container">
         <div class="row row--margin">
-
-            {{-- <h2 class="text-center">Subir foto o video</h2> --}}
-            <hr>
+            <div class="section-header">
+                <h1 class="section-title text-center">Crear album</h1>
+            </div>
 
             <div class="col-md-8 form_parent">
 

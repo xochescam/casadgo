@@ -52,20 +52,22 @@ class Media extends Model
 		if($img != null) {
 
       $imgName     = $img->getClientOriginalName();
-      $extImg      =  strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
-      $newImgName  = $name."_".$file->id.".".$extImg;
+      $extImg      = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
+      $newImgName  = $name."-".$file->id.".".$extImg;
       $route       = 'storage/'.$nameFolder;
-      $thumbsRoute = $route.'/thumbs/';
 
       \Storage::disk('local')->put($nameFolder.$newImgName,  \File::get($img));
 
-      if (!file_exists($thumbsRoute)) {
-        mkdir($thumbsRoute, 0777, true);
-      }
-
       $image = Image::make($route.$newImgName);
-      $image->crop(100, 100);
-      $image->save($thumbsRoute.$newImgName);
+
+      $image->resize(900, null, function ($constraint) {
+          $constraint->aspectRatio();
+          $constraint->upsize();
+      });
+      $image->save($route.$newImgName);
+
+      $image->fit(100);
+      $image->save($route.'thumb-'.$newImgName);
 	  }
 
     $file->url  = $route;

@@ -2,11 +2,11 @@
 
 {{-- Metadata --}}
 @section('meta.title', 'C.A.S.A.')
-@section('meta.tab_title', 'Ver')
+@section('meta.tab_title', 'Noticias')
 @section('meta.description', '')
 @section('meta.canonical')
-@section('id', 'notice-show-item')
-@section('class', 'notice-show-item')
+@section('id', 'more-notices')
+@section('class', 'more-notices')
 
 @section('content')
 
@@ -15,4 +15,3 @@
 @endsection
 
     @include('partials.notices.modal')
-

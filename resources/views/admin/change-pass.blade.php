@@ -12,8 +12,9 @@
 
     <div class="container">
         <div class="row row--margin">
-            <h2 class="text-center">Cambiar contraseña</h2>
-            <hr>
+          <div class="section-header">
+            <h1 class="section-title text-center">Cambiar contraseña</h1>
+          </div>
 
             <div class="col-md-8 form_parent">
 
@@ -41,7 +42,6 @@
                       <div class="text-center med-margin-top">
                         <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
                       </div>
-
 
                 {!! Form::close() !!}
 

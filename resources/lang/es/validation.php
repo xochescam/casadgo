@@ -90,13 +90,7 @@ return [
     'custom' => [
         'date' => [
             'date_format' => 'El campo :attribute no corresponde con el formato de fecha ej. 01/01/2017.',
-        ],
-        'date' => [
-            'date_format' => 'El campo :attribute no corresponde con el formato de fecha ej. 01/01/2017.',
-        ],
-        'date' => [
-            'date_format' => 'El campo de opciones es obligatorio cuando el campo es :value.',
-        ],
+        ]
     ],
 
     /*

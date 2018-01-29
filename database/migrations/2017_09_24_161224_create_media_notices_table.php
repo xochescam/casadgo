@@ -16,9 +16,9 @@ class CreateMediaNoticesTable extends Migration
         Schema::create('media_notices', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('media_id')->unsigned();
-            $table->foreign('media_id')->references('id')->on('media');
+            $table->foreign('media_id')->references('id')->on('media')->onDelete('cascade');;
             $table->integer('notice_id')->unsigned();
-            $table->foreign('notice_id')->references('id')->on('notices');
+            $table->foreign('notice_id')->references('id')->on('notices')->onDelete('cascade');;
             $table->timestamps();
         });
     }

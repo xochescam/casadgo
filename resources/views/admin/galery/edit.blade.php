@@ -10,11 +10,11 @@
 
 @section('content')
 
-    <div class="container container_margin--med">
+    <div class="container">
         <div class="row row--margin">
-
-            <h3 class="text-center">Editar foto</h3>
-            <hr>
+           <div class="section-header">
+                <h1 class="section-title text-center">Editar</h1>
+            </div>
 
             <div class="col-md-8">
 

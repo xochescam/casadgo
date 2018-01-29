@@ -9,7 +9,7 @@ use App\Media;
 class Galery extends Model
 {
 	protected $table = 'galeries';
-	protected $fillable = ['id', 'title'];
+	protected $fillable = ['id', 'title', 'slug'];
 
 
     public function media(){

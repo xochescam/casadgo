@@ -12,6 +12,7 @@ use Session;
 use Redirect;
 use DB;
 use Gate;
+use File;
 
 class GaleryController extends Controller
 {
@@ -146,6 +147,19 @@ class GaleryController extends Controller
 
         $searchItem = Galery::find($id);
         $mediaGalery = MediaGalery::where('galery_id',$id)->get();
+
+        $urlFolder = public_path('storage\galery'.$searchItem->slug);
+
+        // foreach ($searchItem->media as $key => $media) {
+
+        //     $urlFile = public_path($media->url.$media->name);
+
+        //     if(file_exists($urlFile)){
+        //       unlink($urlFile);
+        //     }
+        // }
+
+        File::deleteDirectory($urlFolder);
 
         $searchItem->media()->delete();
 

@@ -15,6 +15,7 @@ class NoticeTableSeeder extends Seeder
             [
                 // 1
                 'title'       => 'Doble maratón 2016',
+                'slug'        => '\doble-maraton-2016',
                 'description' => 'Hago deporte no solo por mi  bienestar, sino también para motivar y dar ejemplo a mis hijos de practicar algún deporte. Siendo ciclista empecé a correr en la pretemporada para dejar un poco la bicicleta y poco a poco empiezo a tomarle gusto a correr y me dejo llevar por el boom de las carreras en donde te dan medallas. Hasta que se me ocurre la idea de realizar un ultramaraton de  84.390 kms.
 
                     Le platico a mi entrenador Jesús Rivera, que siempre me apoya y asesora en mis locuras y le expongo que quiero hacer 2 maratones en menos de 24 horas. La cual consiste en lo siguiente: subir hacia la Muralla, recorrido que tiene una altimetría de más de 2000 mts. lo cual habla de lo difícil que será recorrer 42.195 kms. el primer día. Acampar ahí y al día siguiente hacer la misma distancia de regreso. La dificultad que se tiene aquí, es lograr una recuperación lo más rápido posible para  poder terminar el segundo maratón.
@@ -27,6 +28,7 @@ class NoticeTableSeeder extends Seeder
             [
                 // 2
                 'title'       => 'Ultra Bombon',
+                'slug'        => '\ultra-bombon',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam, laboriosam quidem dolores aspernatur, impedit quas libero est odit, nemo ratione possimus? Minima, nam placeat molestiae labore deserunt expedita nihil.
 
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error omnis, consequatur ex eaque, aut numquam quas neque distinctio repudiandae possimus. Placeat non officia labore quisquam, excepturi magni. Ducimus, quas beatae!
@@ -41,6 +43,7 @@ class NoticeTableSeeder extends Seeder
             [
                 // 3
                 'title'       => 'Tapaton 2016',
+                'slug'        => '\tapaton-2016',
                 'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque nam, laboriosam quidem dolores aspernatur, impedit quas libero est odit, nemo ratione possimus? Minima, nam placeat molestiae labore deserunt expedita nihil.
 
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error omnis, consequatur ex eaque, aut numquam quas neque distinctio repudiandae possimus. Placeat non officia labore quisquam, excepturi magni. Ducimus, quas beatae!
@@ -58,6 +61,7 @@ class NoticeTableSeeder extends Seeder
         foreach ($noticeList as $notice) {
             DB::table('notices')->insert([
                 'title' 	  => $notice['title'],
+                'slug'       => $notice['slug'],
                 'description' => $notice['description'],
                 'date'        => $notice['date'],
                 'user_id'        => $notice['user_id']

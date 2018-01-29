@@ -6,17 +6,15 @@
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'notice-create')
-@section('class', 'admin notice-create')
+@section('class', 'notice-create')
 
 @section('content')
 
     <div class="container">
         <div class="row row--margin">
-
-
-
-            <h2 class="text-center">Crear noticia</h2>
-            <hr>
+   {{--          <div class="section-header">
+                <h1 class="section-title text-center">Crear noticia</h1>
+            </div> --}}
 
             <div class="col-md-8 form_parent">
 
@@ -24,12 +22,11 @@
                 @include('alerts.error')
                 @include('alerts.warning')
 
-                {!! Form::open(['url' => 'noticia',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
+                {!! Form::open(['route' => 'noticias.store',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
 
                     @include('admin.notices.form')
 
                 {!! Form::close() !!}
-
             </div>
         </div>
     </div>

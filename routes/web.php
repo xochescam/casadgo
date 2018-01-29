@@ -50,10 +50,10 @@ Route::delete('/admin/galeria/delete/{id}', ['as' => 'galeria.delete', 'uses' =>
 
 Route::resource('noticias', 'NoticesController');
 Route::get('/admin/noticias', 'NoticesController@index');
+Route::get('/admin/noticias/{id}', 'NoticesController@showAdmin');
 Route::delete('/admin/noticias/delete/{id}', ['as' => 'noticias.delete', 'uses' => 'NoticesController@destroy']);
 
 // Route::post('/send-email', 'EmailController@send');
-
 
 // PUBLIC
 Route::get('/nosotros', function () {

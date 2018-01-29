@@ -14,7 +14,9 @@ use Session;
 use Redirect;
 use DB;
 use Gate;
-
+use Auth;
+use File;
+use Validator;
 
 class NoticesController extends Controller
 {
@@ -50,10 +52,22 @@ class NoticesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NoticeRequest $request)
+    public function store(Request $request)
     {
         if (Gate::denies('create.notice')) {
             abort(403);
+        }
+
+        if(isset($request->img)) {
+            $result = $this->validationImg($request->img);
+
+            return back()->withErrors($result)->withInput();
+        }
+
+        if(isset($request->videos)) {
+            $result = $this->validationVideo($request->videos);
+
+            return back()->withErrors($result)->withInput();
         }
 
         $save = DB::transaction(function () use ($request) {
@@ -61,10 +75,9 @@ class NoticesController extends Controller
             return $fileData;
         });
 
-
         if($save) {
             Session::flash('message','Guardada correctamente');
-            return Redirect::to('/noticia/crear');
+            return Redirect::to('/noticias/crear');
         }
     }
 
@@ -79,7 +92,22 @@ class NoticesController extends Controller
         $notice = Notice::findOrFail($id);
         $type   = $notice->media->groupBy('type');
 
-        return view('partials.notices.read',compact('notice','type'));
+        return view('partials.notices.show',compact('notice','type'));
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showAdmin($id)
+    {
+        $notice = Notice::findOrFail($id);
+        $type   = $notice->media->groupBy('type');
+
+        return view('admin.notices.show',compact('notice','type'));
     }
 
 
@@ -94,6 +122,8 @@ class NoticesController extends Controller
         if (Gate::denies('edit.notice')) {
             abort(403);
         }
+
+        return view('admin.notices.edit');
     }
 
     /**
@@ -125,14 +155,61 @@ class NoticesController extends Controller
         $searchItem = Notice::find($id);
         $mediaNotice = MediaNotice::where('notice_id',$id)->get();
 
+        $urlFolder = public_path('storage\notices'.$searchItem->slug);
+
+
+        // foreach ($searchItem->media as $key => $media) {
+
+        //     $urlFile = public_path($media->url.$media->name);
+
+        //     if(file_exists($urlFile)){
+        //       unlink($urlFile);
+        //     }
+        // }
+
+        File::deleteDirectory($urlFolder);
+
         $searchItem->media()->delete();
 
         $searchItem->delete();
+        
         foreach ($mediaNotice as $key => $value) {
             $value->delete();
         }
 
         return;
+    }
 
+    public function validationImg($imgs) {
+        $mime = ['jpeg','jpg','gif','png'];
+
+        $validator = Validator::make($imgs, []);
+
+        foreach ($imgs as $key => $value) {
+            $name    = $value->getClientOriginalName();
+            $explode = explode('.',strtolower($name));
+
+            if(!in_array($explode[1], $mime)) {
+                $validator->errors()->add('img', 'El archivo "'.$name.'" no es del formato permitido.');
+            }
+        }
+
+        return $validator;
+    }
+
+    public function validationVideo($videos) {
+        $validator = Validator::make($videos, []);
+
+        foreach ($videos as $key => $value) {
+            $regex  = "/^(https?\:\/\/)?(www\.)?(youtube\.com)\/.+$/"; 
+            $number = $key + 1;
+
+            if(!preg_match($regex, $value, $output)) {
+
+                $validator->errors()->add('img', 'El video número "'.$number.'" no es de la fuente indicada.');
+            }
+        } 
+
+        return $validator;
     }
 }

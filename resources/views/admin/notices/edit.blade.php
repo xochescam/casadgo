@@ -5,16 +5,18 @@
 @section('meta.tab_title', 'Editar noticia')
 @section('meta.description', '')
 @section('meta.canonical')
-@section('id', 'notice-create')
-@section('class', 'admin notice-create')
+@section('id', 'notice-edit')
+@section('class', 'admin notice-edit')
 
 @section('content')
 
-    <div class="container container_margin--med">
-        <div class="row">
+    <div class="container">
+        <div class="row row--margin">
+            <div class="section-header">
+                <h1 class="section-title text-center">Editar</h1>
+            </div>
             <div class="col-md-8">
-                <h3>Editar noticia</h3>
-                <hr>
+
 
                 @include('alerts.success')
                 @include('alerts.error')

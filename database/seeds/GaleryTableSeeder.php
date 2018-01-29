@@ -14,13 +14,15 @@ class GaleryTableSeeder extends Seeder
  		$galeryList = [
             [
                 // 1
-                'title'       => '1'
+                'title'       => '1',
+                'slug'       => '\albergue'
             ]
         ];
 
         foreach ($galeryList as $galery) {
             DB::table('galeries')->insert([
-                'title'       => $galery['title']
+                'title'       => $galery['title'],
+                'slug'       => $galery['slug']
             ]);
         }
     }
