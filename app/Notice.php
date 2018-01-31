@@ -34,24 +34,22 @@ class Notice extends Model
         $noticeData->user_id     = Auth::User()->id;
         $noticeData->save();
 
+
         $nameFolder = 'notices/'.$slug.'-'.$noticeData->id.'/';
 
         if(isset($request->img)) {
-
             foreach ($request->img as $imgKey => $imgValue) {
                 $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
                 $mediaNotice = MediaNotice::saveData($saveImage->id, $noticeData->id);
             }
         } 
 
-        foreach ($request->videos as $videoKey => $videoValue) {
+        if(isset($request->videos[0])) {
+            foreach ($request->videos as $videoKey => $videoValue) {
 
-            if($videoValue == null) {
-                return;
+                $saveVideo   = Media::saveVideo($videoKey, $videoValue);
+                $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeData->id);
             }
-
-            $saveVideo   = Media::saveVideo($videoKey, $videoValue);
-            $mediaNotice = MediaNotice::saveData($saveVideo->id, $noticeData->id);
         }
 
         return 'true';

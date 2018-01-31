@@ -1,75 +1,145 @@
  (function() {
-      const clase = document.querySelector('body').className;
+  const clase = document.querySelector('body').className;
 
-      if (clase !== 'notice-create') {
-            return;
-      }
-
-    const addVideoBtn     = document.querySelector('#add-video-btn');
-    const container       = document.querySelector('#videos-container');
-    const smallAlert      = document.querySelector('.small-alert');
-
-    function addVideo(e) {
-
-      const itemsLength = container.querySelectorAll('.item-video').length;
-
-      const limit = hideSmallAlert(itemsLength);
-
-      if(limit) {
+  if (clase !== 'notice-create') {
         return;
-      }
+  }
 
-      const html = `<div class="col-sm-10 align-self-end float-right min-margin-top item-video">
-                      <textarea name="videos[]" class="form-control" rows="2"></textarea>
+  const addVideoBtn     = document.querySelector('#add-video-btn');
+  const container       = document.querySelector('#videos-container');
+  const smallAlert      = document.querySelector('.small-alert');
+  const saveNoticeBtn   = document.querySelector('.js-save-notice');
+
+  function addVideo(e) {
+
+    const itemsLength = container.querySelectorAll('.item-video').length;
+
+    const limit = hideSmallAlert(itemsLength);
+
+    if(limit) {
+      return;
+    }
+
+    const count = itemsLength + 1;
+
+    const html = `<div class="form-group">
+                    <label for="videos `+count+`" class="col-sm-2 text-right">`+count+`.</label>
+                    <div class="col-sm-10 align-self-end float-right item-video">
+                      <textarea name="videos[]" class="form-control" rows="1"></textarea>
                       <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
-                    </div>`;
+                    </div>
+                  </div>`;
 
-      container.insertAdjacentHTML('beforeend', html);
+    container.insertAdjacentHTML('beforeend', html);
 
-      const items = container.querySelectorAll('.item-video textarea');
-      items[items.length - 1].focus();
+    const items = container.querySelectorAll('.item-video textarea');
+    items[items.length - 1].focus();
 
-      const deleteVideoItem = container.querySelectorAll('.delete-item-video');
+    const deleteVideoItem = container.querySelectorAll('.delete-item-video');
 
-      Array.prototype.forEach.call(deleteVideoItem, (video) => {
-        video.addEventListener('click', deleteVideo);
-      });
+    Array.prototype.forEach.call(deleteVideoItem, (video) => {
+      video.addEventListener('click', deleteVideo);
+    });
 
+  }
+
+  function deleteVideo(e) {
+
+    const currentItems = container.querySelectorAll('.item-video');
+
+    if(currentItems.length == 1) {
+      return;
     }
 
-    function deleteVideo(e) {
+    const parent = e.currentTarget.parentNode.parentNode.parentNode;
 
-      const currentItems = container.querySelectorAll('.item-video').length;
+    parent.removeChild(e.currentTarget.parentNode.parentNode);
 
-      if(currentItems == 1) {
-        return;
-      }
+    const newCurrentItems = container.querySelectorAll('.item-video');
 
-      const parent = e.currentTarget.parentNode.parentNode;
-      parent.removeChild(e.currentTarget.parentNode);
+    for (var i = 0; i <= newCurrentItems.length - 1; i++) {  
 
-      const items = container.querySelectorAll('.item-video textarea');
-      items[items.length - 1].focus();
-
-      hideSmallAlert(items.length);
+      const label     = newCurrentItems[i].parentNode.querySelector('label');
+      label.innerText = i + 1 + '.';
     }
 
+    const items = container.querySelectorAll('.item-video textarea');
+    items[items.length - 1].focus();
 
-    function hideSmallAlert(lenght) {
+    hideSmallAlert(items.length);
+  }
 
-      if(lenght >= 5) {
-        smallAlert.classList.remove('none');
-        smallAlert.classList.add('initial');
+  function hideSmallAlert(lenght) {
 
-        return 'true';
+    if(lenght >= 5) {
+      smallAlert.classList.remove('none');
+      smallAlert.classList.add('initial');
+
+      return 'true';
+
+    } else {
+
+      smallAlert.classList.remove('initial');
+      smallAlert.classList.add('none');
+    }
+  }
+
+  function saveNotice(e) {
+    e.preventDefault();
+    
+    const request = new XMLHttpRequest();
+    const token   = e.currentTarget.getAttribute('data-csrf');
+    const form    = document.getElementById('save-notice');
+    const data    = new FormData(form);
+    const spin    = document.querySelector('.fa-spin');
+    const btn     = e.currentTarget;
+    
+    btn.setAttribute("disabled", "true");
+    spin.classList.remove('hidden');
+
+    request.open('POST', 'http://casa.dev/noticias', true);
+    request.setRequestHeader('X-CSRF-Token', token);
+    request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+
+    request.onload = function() {
+      console.log(request.status);
+      if (request.status >= 200 && request.status < 400) {
+                  
+        swal(
+          '¡Guardado!',
+          'La noticia a sido guardada exitosamente.',
+          'success'
+          ).then( function () {
+            window.location.href = 'http://casa.dev/admin/noticias';
+          })
 
       } else {
+        // We reached our target server, but it returned an error
 
-        smallAlert.classList.remove('initial');
-        smallAlert.classList.add('none');
+        btn.removeAttribute("disabled", "false");
+        spin.classList.add('hidden');
+
+        const errors = JSON.parse(request.responseText);
+        const alerts = document.getElementById('alerts');
+        alerts.innerText = '';
+
+        for (var key in errors) {
+          $("#alerts").append('<div class="alert alert-danger" role="alert">'+errors[key][0]+'</div>');
+        }
       }
-    }
+    };
 
-    addVideoBtn.addEventListener('click', addVideo);
+    request.onerror = function() {
+        // There was a connection error of some sort
+        console.log('Ocurrió un error de conexión, por favor intente de nuevo.');
+
+    };
+
+    request.send(data);
+
+  }
+
+  addVideoBtn.addEventListener('click', addVideo);
+  saveNoticeBtn.addEventListener('click', saveNotice);
 
 })();

@@ -17,5 +17,7 @@ class MediaNotice extends Model
         $mediaNotice->notice_id = $noticeId;
 
         $mediaNotice->save();
+
+        return 'true';
     }
 }

@@ -52,28 +52,17 @@ class NoticesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NoticeRequest $request)
     {
         if (Gate::denies('create.notice')) {
             abort(403);
-        }
-
-        if(isset($request->img)) {
-            $result = $this->validationImg($request->img);
-
-            return back()->withErrors($result)->withInput();
-        }
-
-        if(isset($request->videos)) {
-            $result = $this->validationVideo($request->videos);
-
-            return back()->withErrors($result)->withInput();
         }
 
         $save = DB::transaction(function () use ($request) {
             $fileData = Notice::saveData($request);
             return $fileData;
         });
+
 
         if($save) {
             Session::flash('message','Guardada correctamente');
@@ -181,7 +170,7 @@ class NoticesController extends Controller
     }
 
     public function validationImg($imgs) {
-        $mime = ['jpeg','jpg','gif','png'];
+        $mime = ['jpeg','jpg','png'];
 
         $validator = Validator::make($imgs, []);
 
@@ -204,9 +193,11 @@ class NoticesController extends Controller
             $regex  = "/^(https?\:\/\/)?(www\.)?(youtube\.com)\/.+$/"; 
             $number = $key + 1;
 
-            if(!preg_match($regex, $value, $output)) {
+            $idVideo = explode('watch?v=',$value);
 
-                $validator->errors()->add('img', 'El video número "'.$number.'" no es de la fuente indicada.');
+            if(!preg_match($regex, $value, $output) || !isset($idVideo[1])) {
+
+                $validator->errors()->add('img', 'El video "'.$number.'" no es del formato correcto.');
             }
         } 
 

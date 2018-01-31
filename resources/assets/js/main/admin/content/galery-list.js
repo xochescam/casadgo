@@ -52,12 +52,11 @@
         request.onerror = function() {
             // There was a connection error of some sort
             console.log('Ocurrió un error de conexión, por favor intente de nuevo.');
-
         };
 
         request.send();
         } 
-      })
+    })
   }
 
   Array.prototype.forEach.call(btnDelete, (btn) => {

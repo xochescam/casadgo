@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\GaleryRequest;
 use App\Galery;
+use App\Media;
 use App\MediaGalery;
 
 use Session;
@@ -13,6 +14,7 @@ use Redirect;
 use DB;
 use Gate;
 use File;
+use Validator;
 
 class GaleryController extends Controller
 {
@@ -61,6 +63,7 @@ class GaleryController extends Controller
         });
 
         if($save) {
+            return 'success';
             Session::flash('message','Guardada correctamente');
             return Redirect::to('/galeria/crear');
         }
@@ -170,6 +173,40 @@ class GaleryController extends Controller
         }
 
         return;
+    }
 
+    public function validationImg($imgs) {
+        $mime = ['jpeg','jpg','png'];
+
+        $validator = Validator::make($imgs, []);
+
+        foreach ($imgs as $key => $value) {
+            $name    = $value->getClientOriginalName();
+            $explode = explode('.',strtolower($name));
+
+            if(!in_array($explode[1], $mime)) {
+                $validator->errors()->add('img', 'El archivo "'.$name.'" no es del formato permitido.');
+            }
+        }
+
+        return $validator;
+    }
+
+    public function validationVideo($videos) {
+        $validator = Validator::make($videos, []);
+
+        foreach ($videos as $key => $value) {
+            $regex  = "/^(https?\:\/\/)?(www\.)?(youtube\.com)\/.+$/"; 
+            $number = $key + 1;
+
+            $idVideo = explode('watch?v=',$value);
+
+            if(!preg_match($regex, $value, $output) || !isset($idVideo[1])) {
+
+                $validator->errors()->add('img', 'El video "'.$number.'" no es del formato correcto.');
+            }
+        } 
+
+        return $validator;
     }
 }

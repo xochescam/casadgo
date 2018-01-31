@@ -12,17 +12,19 @@
 
     <div class="container">
         <div class="row row--margin">
-            <div class="section-header">
+      {{--       <div class="section-header">
                 <h1 class="section-title text-center">Crear album</h1>
-            </div>
+            </div> --}}
 
             <div class="col-md-8 form_parent">
 
-                @include('alerts.error')
-                @include('alerts.success')
-                @include('alerts.warning')
+                <div id="alerts">
+                    @include('alerts.success')
+                    @include('alerts.error')
+                    @include('alerts.warning')   
+                </div>
 
-                {!! Form::open([ 'url' => 'galeria', 'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
+                {!! Form::open(['route' => 'galeria.store',  'method' => 'POST', 'class' => 'form-horizontal form ', 'files' => 'true', 'id' => 'save-galery']) !!}
 
                     @include('admin.galery.form')
 

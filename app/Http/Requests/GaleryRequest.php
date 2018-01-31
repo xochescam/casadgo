@@ -23,11 +23,28 @@ class GaleryRequest extends FormRequest
      */
     public function rules()
     {
+        $rules = [
+                'title'       => 'required|max:85',
+                'date'        => 'required|date',
+        ]; 
 
-        return [
-            'title'   => 'required', //restringir tamaño
-            'img'   => 'required_if:options,imagen', //validar
-            'video' => 'required_if:options,video', //validar
-        ];
+        $images = count($this->img);
+
+        foreach(range(0, $images) as $index) {
+
+            $rules['img.'.$index] = 'mimes:jpeg,png,jpg';
+        }
+
+
+        $videos = count($this->videos);
+
+        foreach(range(0, $videos) as $index) {
+
+            if(isset($this->videos[$index])) {
+                $rules['videos.'.$index] = 'regex:/^(https?\:\/\/)?(www\.)?(youtube\.com)\/.+$/';
+            }
+        }
+
+        return $rules;
     }
 }

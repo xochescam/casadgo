@@ -12,7 +12,6 @@ class NoticeRequest extends FormRequest
      * @return bool
      */
 
-
     public function authorize()
     {
         return true;
@@ -25,11 +24,30 @@ class NoticeRequest extends FormRequest
      */
     public function rules()
     {
+        $rules = [
+                'title'       => 'required|max:85',
+                'description' => 'required',
+                'date'        => 'required|date',
+        ]; 
 
-        return [
-            'title'       => 'required|max:85',
-            'description' => 'required',
-            'date'        => 'required|date',
-            ];  
+        $images = count($this->img);
+
+        foreach(range(0, $images) as $index) {
+
+            $rules['img.'.$index] = 'mimes:jpeg,png,jpg';
+        }
+
+
+        $videos = count($this->videos);
+
+        foreach(range(0, $videos) as $index) {
+
+            if(isset($this->videos[$index])) {
+                $rules['videos.'.$index] = 'regex:/^(https?\:\/\/)?(www\.)?(youtube\.com)\/.+$/';
+            }
+        }
+
+        return $rules;
     }
+
 }

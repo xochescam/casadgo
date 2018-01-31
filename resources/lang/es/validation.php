@@ -57,7 +57,7 @@ return [
     ],
     'not_in'               => 'El campo :attribute seleccionado es invalido.',
     'numeric'              => 'El campo :attribute debe ser un numero.',
-    'regex'                => 'El formato del campo :attribute es inválido.',
+    'regex'                => 'Verifique que el formato del campo "Videos" sea el correcto.',
     'required'             => 'El campo :attribute es obligatorio',
     'required_if'          => 'El campo :attribute es obligatorio cuando el campo :other es :value.',
     'required_with'        => 'El campo :attribute es obligatorio cuando :values está presente.',
@@ -90,6 +90,9 @@ return [
     'custom' => [
         'date' => [
             'date_format' => 'El campo :attribute no corresponde con el formato de fecha ej. 01/01/2017.',
+        ],
+        'videos' => [
+            'regex' => 'Verifique que el formato del campo "Videos" sea el correcto.',
         ]
     ],
 
@@ -118,7 +121,7 @@ return [
         'new_pass'         => 'Confirmar contraseña',
         'confirm_new_pass' => 'Confirmar nueva contraseña',
         'image'            => 'Seleccionar imagen',
-        'video'            => 'Ingresar código de video',
+        'videos'            => 'Ingresar código de video',
     ],
 
 ];

@@ -19,25 +19,29 @@
     </div>
   </div>
 
-  <h4 class="">Imagenes</h4>
-
+  <h4 class="">Imagenes <small>(Opcional)</small></h4>
+  
   <div class="form-group">
     {!! Form::label('img', 'Seleccionar:',['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-10">
       <input type="file" id="img[]" name="img[]" multiple="true">
-      <small class="form-text text-muted">Seleccione unicamente imagenes con formato .jpg...</small>
+      <small class="form-text text-muted">Seleccione únicamente imagenes con formato .jpg, .jpeg, y .png</small>
     </div>
   </div>
 
-  <h4 class="">Videos</h4>
-    <div class="form-group" id="videos-container">
-      {!! Form::label('videos', 'Ingresar:',['class' => 'col-sm-2 col-form-label']) !!}
+  <h4 class="">Videos <small>(Opcional)</small></h4>
 
+  <div id="videos-container">
+    <div class="form-group">
+       {!! Form::label('videos', '1.',['class' => 'col-sm-2 text-right']) !!}
         <div class="col-sm-10 align-self-end float-right item-video">
-          {!! Form::textarea('videos[]', null, ['class' => 'form-control','rows' => 2]) !!}
+          {!! Form::textarea('videos[]', null, ['class' => 'form-control col-sm-10','rows' => 1]) !!}
           <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
         </div>
-    </div>
+    </div> 
+  </div>
+
+
 
   <div class="col-sm-10 align-self-end float-right">
     <a id="add-video-btn" class="add-video"><i class="fa fa-plus"></i>Ingresar otro video</a>
@@ -45,6 +49,6 @@
   </div>
 
   <div class="text-center med-margin-top">
-    <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+    <button type="submit" class="btn btn-primary btn-lg js-save-notice" data-csrf="{{ csrf_token() }}">Guardar <span class="fa fa-spinner fa-spin hidden" ></span></button>
   </div>
 

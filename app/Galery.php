@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 use App\Media;
+use App\MediaGalery;
 
 class Galery extends Model
 {
@@ -17,22 +18,33 @@ class Galery extends Model
     }
 
 	public static function saveData($request){
+        $slug = str_replace(" ","-",strtolower($request->title));
 
-        if(isset($request->img)) {
+        $galeryData = new Galery;
 
-            $file = Media::saveImg(1, $request->img, 'galery/');
-
-        } else {
-
-            $file = Media::saveVideo(1, $request->video);
-        }
-
-		$galeryData = new Galery;
-
-        $galeryData->title    = $request->title;
+        $galeryData->slug        = $slug;
+        $galeryData->title       = $request->title;
         $galeryData->save();
 
-        return $galeryData;
+
+        $nameFolder = 'galery/'.$slug.'-'.$galeryData->id.'/';
+
+        if(isset($request->img)) {
+            foreach ($request->img as $imgKey => $imgValue) {
+                $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
+                $mediaGalery = MediaGalery::saveData($saveImage->id, $galeryData->id);
+            }
+        } 
+
+        if(isset($request->videos[0])) {
+            foreach ($request->videos as $videoKey => $videoValue) {
+
+                $saveVideo   = Media::saveVideo($videoKey, $videoValue);
+                $mediaGalery = MediaGalery::saveData($saveVideo->id, $galeryData->id);
+            }
+        }
+
+        return 'true';
     }
 
     public static function updateData($request, $id){

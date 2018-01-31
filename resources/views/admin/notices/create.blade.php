@@ -18,11 +18,13 @@
 
             <div class="col-md-8 form_parent">
 
-                @include('alerts.success')
-                @include('alerts.error')
-                @include('alerts.warning')
-
-                {!! Form::open(['route' => 'noticias.store',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true']) !!}
+                <div id="alerts">
+                    @include('alerts.success')
+                    @include('alerts.error')
+                    @include('alerts.warning')   
+                </div>
+    
+               {!! Form::open(['route' => 'noticias.store',  'method' => 'POST', 'class' => 'form-horizontal form ', 'files' => 'true', 'id' => 'save-notice']) !!}
 
                     @include('admin.notices.form')
 
