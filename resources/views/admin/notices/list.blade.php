@@ -37,7 +37,7 @@
               <tr>
                 <th>{{ $notice->title }}</th>
                 <td class="text-center">
-                  <a href="{{ url('admin/noticias',$notice->id) }}" class="btn btn-sm btn-success " role="button" aria-pressed="true" >Ver</a>
+                  <a href="{{ url('noticias',$notice->id) }}" class="btn btn-sm btn-success " role="button" aria-pressed="true" >Ver</a>
                   <a href="{{ route('noticias.edit',$notice->id) }}" class="btn btn-sm btn-info" role="button" aria-pressed="true">Editar</a>
                   <a class="btn btn-sm btn-danger js-delete-notice" role="button" aria-pressed="true" data-item="{{ $notice->id }}" data-csrf="{{ csrf_token() }}">Eliminar</a>
                 </td>

@@ -13,7 +13,7 @@
 
     swal({
       title: '¿Está seguro de eliminar?',
-      text: "Usted no podrá revertirlo",
+      text: "Esta operación no se podrá deshacer.",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
@@ -32,6 +32,7 @@
 
         request.onload = function() {
 
+            console.log(request.status);
             if (request.status >= 200 && request.status < 400) {
               
               swal(

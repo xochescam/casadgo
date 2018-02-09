@@ -15,6 +15,8 @@ use DB;
 use Gate;
 use File;
 use Validator;
+use Storage;
+
 
 class GaleryController extends Controller
 {
@@ -25,6 +27,10 @@ class GaleryController extends Controller
      */
     public function index()
     {
+        if (Gate::denies('show.galery')) {
+            abort(403);
+        }
+
         $folders = Galery::get()->sortByDesc('created_at');
 
         return view('admin.galery.list', compact('folders'));
@@ -59,6 +65,7 @@ class GaleryController extends Controller
 
         $save = DB::transaction(function () use ($request) {
             $fileData = Galery::saveData($request);
+            dd($fileData);
             return $fileData;
         });
 
@@ -77,9 +84,6 @@ class GaleryController extends Controller
      */
     public function show($id)
     {
-        if (Gate::denies('show.galery')) {
-            abort(403);
-        }
 
         $searchItem = Galery::where('id',$id)->with('media')->get();
 
@@ -93,8 +97,8 @@ class GaleryController extends Controller
 
             
         })->toArray();
-        
-        return view('admin.galery.show',compact('item'));
+
+        return view('partials.galery.show',compact('item'));
     }
 
     /**
@@ -111,7 +115,11 @@ class GaleryController extends Controller
 
         $galery = Galery::findOrFail($id);
 
-        return view('admin.galery.edit',compact('galery'));
+        $type = $galery->media->groupBy('type')->map(function ($item, $key) {
+                return $item->sortByDesc('created_at');
+            });
+
+        return view('admin.galery.edit',compact('galery','type'));
     }
 
     /**
@@ -121,18 +129,20 @@ class GaleryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GaleryRequest $request, $id)
     {
         if (Gate::denies('edit.galery')) {
             abort(403);
         }
 
-        $galery = new Galery();
-        $galery = $galery->updateData($request, $id);
+        $save = DB::transaction(function () use ($request, $id) {
+            $fileData = Galery::updateData($request, $id);
+            return $fileData;
+        });
 
-        if($galery) {
-            Session::flash('message','Modificada correctamente');
-            return view('admin.galery.edit',compact('galery'));
+        if($save) {
+            Session::flash('message','Cambios guardados correctamente');
+            return Redirect::to('/galeria/'.$id.'/editar');
         }
     }
 
@@ -151,28 +161,43 @@ class GaleryController extends Controller
         $searchItem = Galery::find($id);
         $mediaGalery = MediaGalery::where('galery_id',$id)->get();
 
-        $urlFolder = public_path('storage\galery'.$searchItem->slug);
+        $path = 'galery/'.$searchItem->slug.'-'.$id;
 
-        // foreach ($searchItem->media as $key => $media) {
-
-        //     $urlFile = public_path($media->url.$media->name);
-
-        //     if(file_exists($urlFile)){
-        //       unlink($urlFile);
-        //     }
-        // }
-
-        File::deleteDirectory($urlFolder);
+        Storage::deleteDirectory($path);
 
         $searchItem->media()->delete();
 
         $searchItem->delete();
+
         foreach ($mediaGalery as $key => $value) {
    
             $value->delete();
         }
 
         return;
+    }
+
+    public function destroyItem($id)
+    {
+        if (Gate::denies('destroy.galery')) {
+            abort(403);
+        }
+
+        $item = Media::with('galery')->where('id',$id)->get()->first();
+        $mediaGalery = MediaGalery::where('media_id',$id)->get()->first();
+
+        $path = $item->url.$item->name;
+        $pathThumb = $item->url.'thumb-'.$item->name;
+
+
+        $deleted = File::delete($path, $pathThumb);
+
+        $item->delete();
+        $mediaGalery->delete();
+      
+        Session::flash('message','Se ha eliminado la imagen correctamente.');
+        return redirect()->back();
+
     }
 
     public function validationImg($imgs) {

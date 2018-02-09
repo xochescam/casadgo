@@ -26,35 +26,61 @@ class Galery extends Model
         $galeryData->title       = $request->title;
         $galeryData->save();
 
-
         $nameFolder = 'galery/'.$slug.'-'.$galeryData->id.'/';
+        
+        $imagenes = static::getImages($request, $galeryData, $nameFolder);
 
-        if(isset($request->img)) {
-            foreach ($request->img as $imgKey => $imgValue) {
-                $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
-                $mediaGalery = MediaGalery::saveData($saveImage->id, $galeryData->id);
-            }
-        } 
+        $videos = static::getVideos($request, $galeryData);
+
+        return true;
+    }
+
+    public static function updateData($request, $id){
+
+        $galery = Galery::findOrFail($id);
+        $media = $galery->media()->where('type','video')->get();
+
+        $galery->title       = $request->title;
+        $galery->save();
+
+        foreach ($media as $key => $value) {
+            $mediaGalery = MediaGalery::where('media_id',$value->id)->get()->first();
+
+            $mediaGalery->delete();
+            $value->delete();
+        }
+
+        $nameFolder = 'galery/'.$galery->slug.'-'.$galery->id.'/';
+
+        $imagenes = static::getImages($request, $galery, $nameFolder);
+
+        $videos = static::getVideos($request, $galery);
+
+        return true;
+    }
+
+    protected static function getVideos($request, $galery) {
 
         if(isset($request->videos[0])) {
             foreach ($request->videos as $videoKey => $videoValue) {
 
                 $saveVideo   = Media::saveVideo($videoKey, $videoValue);
-                $mediaGalery = MediaGalery::saveData($saveVideo->id, $galeryData->id);
+                $mediaNotice = MediaGalery::saveData($saveVideo->id, $galery->id);
             }
         }
 
-        return 'true';
+        return;
     }
 
-    public static function updateData($request, $id){
+    protected static function getImages($request, $galery, $nameFolder) {
 
-        $galeryData = Galery::findOrFail($id);
+        if(isset($request->img)) {
+            foreach ($request->img as $imgKey => $imgValue) {
+                $saveImage   = Media::saveImg($imgKey, $imgValue, $nameFolder);
+                $mediaNotice = MediaGalery::saveData($saveImage->id, $galery->id);
+            }
+        }
 
-        $galeryData->title       = $request->title;
-        $galeryData->description = $request->description;;
-        $galeryData->save();
-
-        return $galeryData;
+        return;
     }
 }

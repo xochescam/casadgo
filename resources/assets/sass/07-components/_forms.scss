@@ -78,3 +78,15 @@
 .add-video i{
     margin-right: 5px;
 }
+
+#add-video-btn {
+    cursor: pointer;
+}
+
+.container-media {
+    display: table;
+    float: none !important;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    text-align: center;
+}

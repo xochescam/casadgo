@@ -35,8 +35,8 @@
                       </div>
 
                        <div class="form-group">
-                        {!! Form::label('new_pass', 'Confirmar nueva contraseña:') !!}
-                        {!! Form::password('new_pass', null, ['class' => 'form-control']) !!}
+                        {!! Form::label('confirm_new_pass', 'Confirmar nueva contraseña:') !!}
+                        {!! Form::password('confirm_new_pass', null, ['class' => 'form-control']) !!}
                       </div>
 
                       <div class="text-center med-margin-top">

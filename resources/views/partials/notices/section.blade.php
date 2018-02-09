@@ -28,12 +28,12 @@
 
                                 </div>
                                 <div class="entry-date">{{ \Carbon\Carbon::parse($notice->date)->diffForHumans() }}</div>
-                                <h2 class="entry-title"><a href="{{ route('noticia.show',$notice->id) }}">{{ $notice->title }}</a></h2>
+                                <h2 class="entry-title"><a href="{{ route('noticias.show',$notice->id) }}">{{ $notice->title }}</a></h2>
                             </div>
 
                             <div class="entry-content">
                                 <P class="ellipsis"> <?php echo nl2br($notice->description); ?> </P>
-                                <a class="btn btn-primary" href="{{ route('noticia.show',$notice->id) }}">Leer Más</a>
+                                <a class="btn btn-primary" href="{{ route('noticias.show',$notice->id) }}">Leer Más</a>
                             </div>
 
                         </article>

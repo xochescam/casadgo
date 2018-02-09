@@ -15,7 +15,7 @@ class GaleryTableSeeder extends Seeder
             [
                 // 1
                 'title'       => '1',
-                'slug'       => '\albergue'
+                'slug'       => 'albergue'
             ]
         ];
 

@@ -25,7 +25,6 @@ class Media extends Model
 
   public static function saveVideo($key, $video) {
 
-
     $idVideo = explode('watch?v=',$video);
 
     $file = new Media;
@@ -51,11 +50,10 @@ class Media extends Model
     $doblepoint = str_replace(":", "", $now);
     $middle     = str_replace("-", "", $doblepoint);
     $name       = str_replace(" ", "", $middle);
+    $random     = str_slug(str_random(10));
     $mime       = ['jpeg','jpg','png'];
 
-
 		if($img != null) {
-
 
       $imgName     = $img->getClientOriginalName();
       $extImg      = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
@@ -64,14 +62,12 @@ class Media extends Model
         $extImg = 'jpg';
       }
 
-      $newImgName  = $name."-".$file->id.".".$extImg;
+      $newImgName  = $random.$name.".".$extImg;
       $route       = 'storage/'.$nameFolder;
       \Storage::disk('local')->put($nameFolder.$newImgName,  \File::get($img));
 
-
       $image = Image::make($route.$newImgName);
 
-      
       $image->resize(900, null, function ($constraint) {
           $constraint->aspectRatio();
           $constraint->upsize();

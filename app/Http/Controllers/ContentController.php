@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Galery;
 use App\Notice;
+use App\MediaGalery;
+use App\Media;
 
 use Carbon\Carbon;
 
@@ -21,7 +23,7 @@ class ContentController extends Controller
 
         $carbon = Carbon::parse('2017-05-12')->diffForHumans();
 
-    	$galery     = Galery::with('media')->get()->reverse()->take(8);
+        $galery = Media::with('galery')->where('type','img')->get()->reverse()->take(8);
     	$notices = Notice::with('media')->get()->reverse()->take(3);
         //$lastNotice = $allNotices->last();
 

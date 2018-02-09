@@ -24,7 +24,7 @@
                     @include('alerts.warning')   
                 </div>
     
-               {!! Form::open(['route' => 'noticias.store',  'method' => 'POST', 'class' => 'form-horizontal form ', 'files' => 'true', 'id' => 'save-notice']) !!}
+               {!! Form::open(['route' => 'noticias.store',  'method' => 'POST', 'class' => 'form-horizontal form', 'files' => 'true', 'id' => 'save-notice']) !!}
 
                     @include('admin.notices.form')
 

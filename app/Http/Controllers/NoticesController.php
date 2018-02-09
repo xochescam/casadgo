@@ -17,6 +17,7 @@ use Gate;
 use Auth;
 use File;
 use Validator;
+use Storage;
 
 class NoticesController extends Controller
 {
@@ -27,6 +28,10 @@ class NoticesController extends Controller
      */
     public function index()
     {
+        if (Gate::denies('show.notice')) {
+            abort(403);
+        }
+
         $notices = Notice::get()->sortByDesc('created_at');
 
         return view('admin.notices.list',compact('notices'));
@@ -78,25 +83,21 @@ class NoticesController extends Controller
      */
     public function show($id)
     {
-        $notice = Notice::findOrFail($id);
-        $type   = $notice->media->groupBy('type');
+        $searchItem = Notice::where('id',$id)->with('media')->get();
 
-        return view('partials.notices.show',compact('notice','type'));
-    }
+        $item = $searchItem->mapWithKeys(function ($item) {
 
+            $media = $item->media->groupBy('type')->toArray();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showAdmin($id)
-    {
-        $notice = Notice::findOrFail($id);
-        $type   = $notice->media->groupBy('type');
+            return [   'id' => $item->id,
+                    'title' => $item->title,
+                    'description' => $item->description,
+                    'items' => $media];
 
-        return view('admin.notices.show',compact('notice','type'));
+            
+        })->toArray();
+
+        return view('partials.notices.show',compact('item'));
     }
 
 
@@ -112,7 +113,13 @@ class NoticesController extends Controller
             abort(403);
         }
 
-        return view('admin.notices.edit');
+        $notice = Notice::findOrFail($id);
+
+        $type = $notice->media->groupBy('type')->map(function ($item, $key) {
+                return $item->sortByDesc('created_at');
+            });
+
+        return view('admin.notices.edit',compact('notice','type'));
     }
 
     /**
@@ -122,10 +129,20 @@ class NoticesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(NoticeRequest $request, $id)
     {
         if (Gate::denies('edit.notice')) {
             abort(403);
+        }
+
+        $save = DB::transaction(function () use ($request, $id) {
+            $fileData = Notice::updateData($request, $id);
+            return $fileData;
+        });
+
+        if($save) {
+            Session::flash('message','Cambios guardados correctamente');
+            return Redirect::to('/noticias/'.$id.'/editar');
         }
     }
 
@@ -144,19 +161,9 @@ class NoticesController extends Controller
         $searchItem = Notice::find($id);
         $mediaNotice = MediaNotice::where('notice_id',$id)->get();
 
-        $urlFolder = public_path('storage\notices'.$searchItem->slug);
+        $path = 'storage/notices/'.$searchItem->slug.'-'.$id;
 
-
-        // foreach ($searchItem->media as $key => $media) {
-
-        //     $urlFile = public_path($media->url.$media->name);
-
-        //     if(file_exists($urlFile)){
-        //       unlink($urlFile);
-        //     }
-        // }
-
-        File::deleteDirectory($urlFolder);
+        $deleted = File::deleteDirectory($path);
 
         $searchItem->media()->delete();
 
@@ -167,6 +174,29 @@ class NoticesController extends Controller
         }
 
         return;
+    }
+
+    public function destroyItem($id)
+    {
+        if (Gate::denies('destroy.notice')) {
+            abort(403);
+        }
+
+        $item = Media::with('notice')->where('id',$id)->get()->first();
+        $mediaNotice = MediaNotice::where('media_id',$id)->get()->first();
+
+        $path = $item->url.$item->name;
+        $pathThumb = $item->url.'thumb-'.$item->name;
+
+
+        $deleted = File::delete($path, $pathThumb);
+
+        $item->delete();
+        $mediaNotice->delete();
+      
+        Session::flash('message','Se ha eliminado la imagen correctamente.');
+        return redirect()->back();
+
     }
 
     public function validationImg($imgs) {

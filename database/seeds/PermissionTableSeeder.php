@@ -51,6 +51,11 @@ class PermissionTableSeeder extends Seeder
                 // 8
                 'permission' => 'eliminar noticia',
                 'slug' => 'delete.notice'
+            ],
+            [
+                // 9
+                'permission' => 'cambiar contraseña',
+                'slug' => 'change.pass'
             ]
         ];
 

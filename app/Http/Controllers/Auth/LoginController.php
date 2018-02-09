@@ -34,7 +34,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/galeria/crear';
+    protected $redirectTo = '/admin/galeria';
 
     /**
      * Create a new controller instance.
@@ -69,16 +69,22 @@ class LoginController extends Controller
      */
     public function getLogout()
     {
-
         if(Auth::user()){
-
             Auth::logout();
             Session::flush();
 
             return redirect('/admin');
         }
 
-        return redirect('/galeria/crear');
+        return redirect('/admin');
+    }
+
+    public function getAdmin() {
+        if(!Auth::user()) {
+            return view('admin.login');
+        }else {
+            return redirect('/admin/galeria');
+        }
     }
 
 
@@ -98,7 +104,7 @@ class LoginController extends Controller
     {
 
         $routes = [
-            1 => '/galeria/crear', //admin
+            1 => '/admin/galeria', //admin
         ];
 
         return $routes[$role];

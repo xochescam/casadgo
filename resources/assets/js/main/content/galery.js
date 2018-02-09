@@ -1,7 +1,7 @@
  (function() {
 	const clase = document.querySelector('body').className;
 
-    if (clase !== 'homepage') {
+    if (clase !== 'homepage' && clase !== 'galery-show' && clase !==  'notices-show') {
         return;
     }
 
@@ -12,10 +12,10 @@
     function openModal(e) {
     	const img = e.currentTarget.querySelector('img');
 
-        console.log(img);
+        const split = img.src.split("thumb-");
 
         modalTitle.innerText = img.getAttribute('data-title');
-        modalImg.src         = img.src;
+        modalImg.src         = split[0]+split[1];
 
         return;
     }

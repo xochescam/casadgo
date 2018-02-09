@@ -76,12 +76,6 @@
                 </div>
                 <div class="col-lg-2 col-md-4 col-xs-6">
                   <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
-                    <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Maria-Chavez.png') }}" alt="Maria Chavez">
-                    Maria Chavez
-                  </a>
-                </div>
-                <div class="col-lg-2 col-md-4 col-xs-6">
-                  <a class="d-block mb-4 h-100 voluter" data-toggle="modal" data-target="#volunterModal">
                     <img class="img-fluid img-thumbnail img-thumbnail__circle" src="{{ url('/images/volunters/Mayra-Marrufo.png') }}" alt="Mayra Marrufo">
                     Mayra Marrufo
                   </a>

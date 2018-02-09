@@ -12,7 +12,9 @@
 
     @include('partials.notices.item')
 
+	@include('partials.notices.modal')
+	
 @endsection
 
-    @include('partials.notices.modal')
+    
 

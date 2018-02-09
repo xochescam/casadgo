@@ -37,7 +37,7 @@
 
         <p>Entre los casos que atendimos, hubo un caso muy significativo de una mujer de buena situación económica que su esposo era guardaespaldas de una persona importante.  Ella y su hijo huyeron de el porque los quería matar.   Tres mujeres llegaron con lecciones en la columna vertebral y tuvieron que usar un collarín los 3 meses de su estancia; una de ellas estuvo a punto de quedar paralitica. Son muchos los testimonios y las vivencias que se compartieron en este lugar y sin lugar a dudas para muchas mujeres fue una oportunidad de vida. Muchos de los niños que llegaron traían muchos traumas y miedos; a medida que pasaban tiempo en el refugio se podía ver como poco a poco se iba desactivando la violencia y se iban recuperando la alegría, gracias a la ayuda psicológica y espiritual y física. Lamentablemente el 30 de junio del 2006 se tuvo que cerrar por falta de fondos.</p>
 
-        <h4>Comedor  Pan de C.A.S.A.</h4>
+        <h4>COMEDOR PAN DE C.A.S.A.</h4>
 
         <p>El comedor abrió sus puertas el 19 de mayo del 2007 con el propósito de alimentar a los familiares de los enfermos hospitalizados en el Hospital Materno Infantil (antes Hospital General)  y el Hospital del Centro Estatal de Cancerología que vienen  de los pueblos del Estado de Durango y de los Estados colindantes. Después de 10 años se han entregado en forma gratuita desayunos y comidas calientes y cenas para llevar,  más de 160,000 platillos. Día tras día hemos visto como Dios multiplica y bendice todo lo que compartimos.</p>
 

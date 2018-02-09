@@ -14,3 +14,27 @@
 .d-block {
     display: block!important;
 }
+
+.delete-img {
+	color: #c52d2a; 
+    top: 0;
+    right: 0;
+    text-align: center;
+	float: inline-end;
+	font-size: 16px;
+	position: absolute;
+	z-index: 2;
+	margin-right: -6px;
+	margin-top: -9px;
+
+	&:hover, &:active, &:focus {
+		text-decoration: none !important;
+		color: #bb2623 !important; 
+	}
+}
+
+.img-container {
+	display: inline-block;
+	margin: 10px;
+	position: relative;
+}

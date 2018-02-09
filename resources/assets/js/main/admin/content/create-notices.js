@@ -1,14 +1,16 @@
  (function() {
   const clase = document.querySelector('body').className;
 
-  if (clase !== 'notice-create') {
+  if (clase !== 'notice-create' && clase !== 'notice-edit' ) {
         return;
   }
 
-  const addVideoBtn     = document.querySelector('#add-video-btn');
-  const container       = document.querySelector('#videos-container');
-  const smallAlert      = document.querySelector('.small-alert');
-  const saveNoticeBtn   = document.querySelector('.js-save-notice');
+  const addVideoBtn      = document.querySelector('#add-video-btn');
+  const container        = document.querySelector('#videos-container');
+  const smallAlert       = document.querySelector('.small-alert');
+  const saveNoticeBtn    = document.querySelector('.js-save-notice');
+  const deleteVideoItems = container.querySelectorAll('.delete-item-video');
+
 
   function addVideo(e) {
 
@@ -87,27 +89,34 @@
   function saveNotice(e) {
     e.preventDefault();
     
-    const request = new XMLHttpRequest();
-    const token   = e.currentTarget.getAttribute('data-csrf');
-    const form    = document.getElementById('save-notice');
-    const data    = new FormData(form);
-    const spin    = document.querySelector('.fa-spin');
     const btn     = e.currentTarget;
+    const method  = btn.getAttribute('data-method');
+    const id      = btn.getAttribute('data-notice');
+    const token   = btn.getAttribute('data-csrf');
+    const form    = document.getElementById('save-notice');;
+    const spin    = document.querySelector('.fa-spin');
+    const request = new XMLHttpRequest();
+    const data    = new FormData(form);
+
     
     btn.setAttribute("disabled", "true");
     spin.classList.remove('hidden');
 
-    request.open('POST', 'http://casa.dev/noticias', true);
+    request.open('POST', 'http://casa.dev/noticias'+id, true);
     request.setRequestHeader('X-CSRF-Token', token);
     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-
     request.onload = function() {
-      console.log(request.status);
       if (request.status >= 200 && request.status < 400) {
-                  
+
+        let message = 'La noticia a sido guardada exitosamente.';
+
+         if(method == 'PUT') {
+            message = 'Los cambios han sido guardados exitosamente.';
+         } 
+
         swal(
           '¡Guardado!',
-          'La noticia a sido guardada exitosamente.',
+          message,
           'success'
           ).then( function () {
             window.location.href = 'http://casa.dev/admin/noticias';
@@ -138,6 +147,10 @@
     request.send(data);
 
   }
+
+  Array.prototype.forEach.call(deleteVideoItems, (video) => {
+      video.addEventListener('click', deleteVideo);
+  });
 
   addVideoBtn.addEventListener('click', addVideo);
   saveNoticeBtn.addEventListener('click', saveNotice);

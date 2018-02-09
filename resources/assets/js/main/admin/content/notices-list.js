@@ -13,7 +13,7 @@
 
     swal({
       title: '¿Está seguro de eliminar?',
-      text: "Usted no podrá revertirlo",
+      text: "Esta operación no se podrá deshacer.",
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',

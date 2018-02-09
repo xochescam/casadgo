@@ -24,7 +24,6 @@
         <thead>
           <tr>
             <th scope="col">Titulo</th>
-            <th scope="col">Fecha</th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -37,7 +36,6 @@
             @foreach($folders as $folder)
               <tr>
                 <th>{{ $folder->title }}</th>
-                <th>{{ $folder->date }}</th>
                 <td class="text-center">
                   <a href="{{ route('galeria.show',$folder->id) }}" class="btn btn-sm btn-success " role="button" aria-pressed="true" >Ver</a>
                   <a href="{{ route('galeria.edit',$folder->id) }}" class="btn btn-sm btn-info" role="button" aria-pressed="true">Editar</a>

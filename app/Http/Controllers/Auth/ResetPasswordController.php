@@ -11,6 +11,7 @@ use Session;
 use Auth;
 use Hash;
 use Redirect;
+use Gate;
 
 class ResetPasswordController extends Controller
 {
@@ -51,6 +52,10 @@ class ResetPasswordController extends Controller
      */
     public function index($id)
     {
+        if (Gate::denies('change.pass')) {
+            abort(403);
+        }
+
         $user = User::findOrFail($id);
 
         return view('admin.change-pass');

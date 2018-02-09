@@ -11,7 +11,7 @@
       <ul class="navbar-nav--user">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle " id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Xochitl <i class="fa fa-user"></i>
+            {{ Auth::user()->first_name }} <i class="fa fa-user"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <a class="dropdown-item" href="{{ url('/cambiar-contrasena',Auth::user()->id) }}">Cambiar contraseña</a>

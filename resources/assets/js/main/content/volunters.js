@@ -146,11 +146,6 @@
 					    	"text":""
 					    },
 					    {
-					    	"name":"Maria Chavez",
-					    	"completeName":"Maria Chavez", 
-					    	"text":""
-					    },
-					    {
 					    	"name":"Alicia Ontiveros",
 					    	"completeName":"Alicia Ontiveros", 
 					    	"text":"SANIDAD, GRACIA, GRATITUD, PAZ, AMOR, SERVICIO. <br> <b>Santidad.</b> Lo primero que hizo la consejería para mí, fue sanar muchas áreas de mi vida que estaban débiles, con dolor y enojo. Al escuchar diversas situaciones por las que pasaban las mujeres que llegaban a la consejería, pude a través de lo que el Espíritu Santo me indicaba sanar mi propio corazón de muchas heridas a partir de mi separación matrimonial. <br> <b>Gracia.</b> Darme cuenta que solo por la Gracia de Dios podía estar frente a diversas situaciones contadas por estas mujeres de diferente edad, desde adolecentes hasta mujeres maduras a las cuales podía darles paz y amor que era lo que más necesitaban. 'Un oído atento que pudiera escucharlas'. <br> <b>Gratitud.</b> Darle Gracias a Dios a cada momento por el privilegio que me otorgaba, yo una vasija con tantas imperfecciones, había sido elegida para ayudar a otros de sus hijos. <br> <b>Paz.</b> Salir cada vez de las sesiones con la paz que Jesús me daba al poder transmitir su amor y su palabra a otros. <br> <b>Amor.</b> El amor que me permite tener por cada una de las usuarias y la empatía por las situaciones que atraviesan, tener el privilegio de orar por ellas y transmitir a su vez el amor de Dios a sus vidas. Ese amor que sobrepasa todo entendimiento. <br> <b>Servicio.</b> Tener el privilegio de servir a Dios es la responsabilidad más importante de mi vida, ya que sé que la santidad del corazón de las personas es la prioridad de Dios y al saber que soy un instrumento en sus manos puede dar libertad y paz me honra y me da gozo. <br>"

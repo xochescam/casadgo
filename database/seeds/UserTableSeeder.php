@@ -16,7 +16,7 @@ class UserTableSeeder extends Seeder
                 // 1
                 'first_name' => 'admin',
                 'last_name' => 'admin',
-                'email' => 'admin@casa.mx',
+                'email' => 'admin@casadgo.org.mx',
                 'password' => bcrypt('admin')
             ]
         ];

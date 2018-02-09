@@ -6,7 +6,7 @@
 @section('meta.description', '')
 @section('meta.canonical')
 @section('id', 'galery-edit')
-@section('class', 'admin galery-edit')
+@section('class', 'galery-edit')
 
 @section('content')
 
@@ -16,13 +16,15 @@
                 <h1 class="section-title text-center">Editar</h1>
             </div>
 
-            <div class="col-md-8">
+            <div class="col-md-8 form_parent">
 
-       {{--     @include('alerts.success')
-                @include('alerts.error')
-                @include('alerts.warning') --}}
+                <div id="alerts">
+                    @include('alerts.success')
+                    @include('alerts.error')
+                    @include('alerts.warning')   
+                </div>
 
-                {!!Form::model($galery, array('url' => array('/galeria', $galery->id)))!!}
+                {{ Form::model($galery, array('route' => array('galeria.update',$galery->id), 'method' => 'PUT', 'class' => 'form-horizontal form', 'files' => 'true', 'id' => 'save-galery')) }}
 
                     @include('admin.galery.form')
 

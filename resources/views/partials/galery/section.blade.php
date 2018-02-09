@@ -9,12 +9,11 @@
 
         <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
           <a class="d-block mb-4 h-100">
-            <img class="img-fluid img-thumbnail" src="{{ url($item->media->url) }}" alt="{{ $item->media->name }}" data-title="{{ $item->title }}">
+            <img class="img-fluid img-thumbnail" src="{{ url($item->url.'thumb-'.$item->name) }}" data-title="{{ $item->galery[0]->title  }}">
           </a >
         </div>
 
-      @endforeach
-     
+      @endforeach     
       <p class="text-right margin-top"><a class="btn btn-primary" href="{{ url('galeria') }}">Ver Más</a></p>
 
     </div>

@@ -10,28 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/', function () {
-
-//     $image = Image::make('image.jpg');
-
-//     $image->crop(100, 100);
-
-//     $image->save('image2.jpg');
-
-// });
 
 
 // Home
 Route::get('/', 'ContentController@home');
 
 // ADMIN
-Route::get('/admin', function () {
-    return view('admin.login');
-});
+Route::get('/admin', 'Auth\LoginController@getAdmin');
 
-Route::get('/cambiar-contraseña', function () {
-    return view('emails.contact');
-});
+// Route::get('/cambiar-contraseña', function () {
+//     return view('emails.contact');
+// });
 
 //Login
 Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
@@ -47,11 +36,14 @@ Route::post('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@update');
 Route::resource('galeria', 'GaleryController');
 Route::get('/admin/galeria', 'GaleryController@index');
 Route::delete('/admin/galeria/delete/{id}', ['as' => 'galeria.delete', 'uses' => 'GaleryController@destroy']);
+Route::get('/admin/galeria/delete-item/{id}', ['as' => 'galeria.delete.item', 'uses' => 'GaleryController@destroyItem']);
+
 
 Route::resource('noticias', 'NoticesController');
 Route::get('/admin/noticias', 'NoticesController@index');
-Route::get('/admin/noticias/{id}', 'NoticesController@showAdmin');
 Route::delete('/admin/noticias/delete/{id}', ['as' => 'noticias.delete', 'uses' => 'NoticesController@destroy']);
+Route::get('/admin/noticias/delete-item/{id}', ['as' => 'noticias.delete.item', 'uses' => 'NoticesController@destroyItem']);
+
 
 // Route::post('/send-email', 'EmailController@send');
 
