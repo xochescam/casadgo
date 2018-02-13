@@ -7,10 +7,10 @@
 
       @foreach($galery as $item)
 
-        <div class="col-lg-3 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
-          <a class="d-block mb-4 h-100">
+        <div class="col-lg-2 col-md-4 col-xs-6 galery-item" data-toggle="modal" data-target="#galeryModal">
+          <a class="d-block mb-4 h-100 selected-img">
             <img class="img-fluid img-thumbnail" src="{{ url($item->url.'thumb-'.$item->name) }}" data-title="{{ $item->galery[0]->title  }}">
-          </a >
+          </a>
         </div>
 
       @endforeach     

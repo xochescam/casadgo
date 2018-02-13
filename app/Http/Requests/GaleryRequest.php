@@ -25,7 +25,10 @@ class GaleryRequest extends FormRequest
     {
 
         $rules = [
-                'title'       => 'required|max:85'
+                'title'       => 'required|max:85',
+                'description' => 'required|max:300',
+                'date'        => 'required|date'
+
         ]; 
 
         $images = count($this->img);

@@ -23,17 +23,23 @@ class ContentController extends Controller
 
         $carbon = Carbon::parse('2017-05-12')->diffForHumans();
 
-        $galery = Media::with('galery')->where('type','img')->get()->reverse()->take(8);
-    	$notices = Notice::with('media')->get()->reverse()->take(3);
-        //$lastNotice = $allNotices->last();
-
-        // $notices = $allNotices->filter(function ($value, $key) use ($lastNotice) {
-
-        //     return $value->id != $lastNotice->id;
-
-        // })->reverse()->take(2);
+        $galery = Media::with('galery')->where('type','img')->get()->reverse()->take(12);
+    	$notices = Notice::with('media')->get()->reverse()->take(4);
 
 		return view('home',compact('galery','notices'));
         
+    }
+
+    public function moreNotices()
+    {
+        $notices = Notice::with('media')->get()->reverse();
+        return view('partials.notices.more',compact('notices'));
+    }
+
+    public function moreGalery() 
+    {
+        $galery = Galery::with('media')->get()->reverse();
+
+        return view('partials.galery.more',compact('galery'));
     }
 }

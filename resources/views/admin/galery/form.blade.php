@@ -5,16 +5,29 @@
     </div>
   </div>
 
+  <div class="form-group">
+    {!! Form::label('description', 'Descripción corta:',['class' => 'col-sm-2 col-form-label']) !!}
+    <div class="col-sm-10">
+      {!! Form::textarea('description', isset($galery) ? $galery->description : null, ['class' => 'form-control', 'maxlength' => 300,'rows' => 4]) !!}
+    </div>
+  </div>
+
+  <div class="form-group">
+    {!! Form::label('date', 'Fecha:',['class' => 'col-sm-2 col-form-label']) !!}
+    <div class="col-sm-10">
+      {!! Form::date('date', isset($galery) ? $galery->date : null, ['class' => 'form-control']) !!}
+    </div>
+  </div>
+
   <h4 class="">Imagenes <small>(Opcional)</small></h4>
   <div class="form-group">
     <div class="col-sm-10 align-self-end float-right">
       @if(isset($type['img']))
         @foreach($type['img'] as $key => $img)
-        <div class="img-container">
+        <div class="img-container col-lg-3 col-sm-3 col-xs-4">
           <a href="{{ route('galeria.delete.item',$img->id) }}" class="delete-img fa fa-plus fa-rotate-42"></a>
             <img src="{{ url($img->url.'thumb-'.$img->name) }}" alt="">
         </div>
-          
         @endforeach
       @endif
     </div>
@@ -37,7 +50,7 @@
       <div class="form-group">
        {!! Form::label('videos',($key + 1).'.',['class' => 'col-sm-2 text-right']) !!}
         <div class="col-sm-10 align-self-end float-right item-video">
-          {!! Form::textarea('videos[]', 'https://www.youtube.com/watch?v='.$video->url, ['class' => 'form-control col-sm-10','rows' => 1]) !!}
+          {!! Form::textarea('videos[]', 'https://www.youtube.com/watch?v='.$video->url, ['class' => 'form-control col-sm-10','rows' => 2]) !!}
           <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
         </div>
       </div> 
@@ -46,8 +59,8 @@
     <div class="form-group">
        {!! Form::label('videos', '1.',['class' => 'col-sm-2 text-right']) !!}
         <div class="col-sm-10 align-self-end float-right item-video">
-          {!! Form::textarea('videos[]', null, ['class' => 'form-control col-sm-10','rows' => 1]) !!}
-          <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
+          {!! Form::textarea('videos[]', null, ['class' => 'form-control col-sm-10','rows' => 2]) !!}
+          <a class="delete-item-video"><i class="fa fa-plus fa-rotate-42"></i></a>
         </div>
       </div> 
   @endif

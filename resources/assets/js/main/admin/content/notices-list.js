@@ -8,8 +8,9 @@
   const btnDelete = document.querySelectorAll('.js-delete-notice');
 
   function deleteNotice(e) {
-    const id = e.currentTarget.getAttribute('data-item');
+    const id   = e.currentTarget.getAttribute('data-item');
     const csrf = e.currentTarget.getAttribute('data-csrf');
+    const url  = window.location.origin;
 
     swal({
       title: '¿Está seguro de eliminar?',
@@ -26,7 +27,7 @@
         let request  = new XMLHttpRequest();
         let response = false;
 
-        request.open('DELETE', 'http://casa.dev/admin/noticias/delete/' + id , true);
+        request.open('DELETE', url+'/admin/noticias/delete/' + id , true);
         request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
         request.setRequestHeader('X-CSRF-Token', csrf);
 
@@ -39,7 +40,7 @@
                   'El registro a sido eliminado.',
                   'success'
                 ).then( function () {
-                    window.location.href = 'http://casa.dev/admin/noticias';
+                    window.location.href = url+'/admin/noticias';
                   })
 
             } else {

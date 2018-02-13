@@ -8,6 +8,7 @@ use App\Http\Requests\GaleryRequest;
 use App\Galery;
 use App\Media;
 use App\MediaGalery;
+use Carbon\Carbon;
 
 use Session;
 use Redirect;
@@ -65,7 +66,6 @@ class GaleryController extends Controller
 
         $save = DB::transaction(function () use ($request) {
             $fileData = Galery::saveData($request);
-            dd($fileData);
             return $fileData;
         });
 
@@ -89,11 +89,18 @@ class GaleryController extends Controller
 
         $item = $searchItem->mapWithKeys(function ($item) {
 
+            setlocale(LC_TIME, 'Spanish');
+            $date = Carbon::parse($item->date)->formatLocalized('%A %d %B %Y');
+
             $media = $item->media->groupBy('type')->toArray();
 
-            return [   'id' => $item->id,
-                    'title' => $item->title,
-                    'items' => $media];
+            return [   
+                    'id'          => $item->id,
+                    'title'       => $item->title,
+                    'date'        => $date,
+                    'description' => $item->description,
+                    'items'       => $media
+                ];
 
             
         })->toArray();

@@ -15,7 +15,7 @@
         <h1 class="section-title text-center">{{ $item['title'] }}</h1>
         
         <div class="col-md-10 container-media text-left">
-        	<p>Por: C.A.S.A.</p>
+        <p><i>por: </i> <span>C.A.S.A.</span> <i>publicada el</i> <span>{{ $item['date'] }}</span></p>
         </div>
         
       </div> 

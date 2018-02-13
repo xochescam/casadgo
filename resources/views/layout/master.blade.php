@@ -47,7 +47,7 @@
     @else
         <script src="{{ asset('js/dependencies.min.'. config('cache.js.dependencies') . '.js') }}"></script>
         <script src="{{ asset('js/main.min.'. config('cache.js.main') . '.js') }}"></script>
-        <script src="{{ asset('js/admin.min.'. config('cache.js.main') . '.js') }}"></script>
+        <script src="{{ asset('js/admin.min.'. config('cache.js.admin') . '.js') }}"></script>
     @endif
 
 </body>

@@ -29,6 +29,7 @@ class NoticeRequest extends FormRequest
                 'title'       => 'required|max:85',
                 'description' => 'required',
                 'date'        => 'required|date',
+                'img'         => 'required_if:data-images,false'
         ]; 
 
         $images = count($this->img);

@@ -93,6 +93,9 @@ return [
         ],
         'videos' => [
             'regex' => 'Verifique que el formato del campo "Videos" sea el correcto.',
+        ],
+        'img' => [
+            'required_if' => 'El campo :attribute es obligatorio',
         ]
     ],
 
@@ -110,7 +113,7 @@ return [
     'attributes' => [
         'name'             => 'Nombre',
         'description'      => 'Descripción',
-        'img'              => 'Elegir archivos',
+        'img'              => 'Imagenes',
         'title'            => 'Título',
         'date'             => 'Fecha',
         'email'            => 'Correo electrónico',

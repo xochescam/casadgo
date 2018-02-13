@@ -27,7 +27,7 @@
     const html = `<div class="form-group">
                     <label for="videos `+count+`" class="col-sm-2 text-right">`+count+`.</label>
                     <div class="col-sm-10 align-self-end float-right item-video">
-                      <textarea name="videos[]" class="form-control" rows="1"></textarea>
+                      <textarea name="videos[]" class="form-control" rows="2"></textarea>
                       <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
                     </div>
                   </div>`;
@@ -97,12 +97,12 @@
     const spin    = document.querySelector('.fa-spin');
     const request = new XMLHttpRequest();
     const data    = new FormData(form);
-
+    const url     = window.location.origin;
     
     btn.setAttribute("disabled", "true");
     spin.classList.remove('hidden');
 
-    request.open('POST', 'http://casa.dev/noticias'+id, true);
+    request.open('POST', url+'/noticias'+id, true);
     request.setRequestHeader('X-CSRF-Token', token);
     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     request.onload = function() {
@@ -119,7 +119,7 @@
           message,
           'success'
           ).then( function () {
-            window.location.href = 'http://casa.dev/admin/noticias';
+            window.location.href = url+'/admin/noticias';
           })
 
       } else {

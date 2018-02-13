@@ -52,6 +52,5 @@ mix.sass('resources/assets/sass/main.min.scss', 'public/css');
 */
 
 mix.browserSync({
-    proxy: 'localhost:3000',
-    notify: false
+    proxy: 'casa.dev'
 });

@@ -15,6 +15,11 @@
         <h1 class="section-title text-center">{{ $item['title'] }}</h1>
       </div> 
 
+      <div class="col-md-10 container-media text-left">
+        <p><i>por: </i> <span>C.A.S.A.</span> <i>publicada el</i> <span>{{ $item['date'] }}</span></p>
+        <p>{{ $item['description'] }}</p>
+      </div> 
+
       @if(isset($item['items']['img']))
         @include('partials.galery.img')
       @endif

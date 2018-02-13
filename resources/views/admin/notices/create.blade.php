@@ -12,9 +12,9 @@
 
     <div class="container">
         <div class="row row--margin">
-   {{--          <div class="section-header">
+            <div class="section-header">
                 <h1 class="section-title text-center">Crear noticia</h1>
-            </div> --}}
+            </div>
 
             <div class="col-md-8 form_parent">
 

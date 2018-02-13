@@ -16,8 +16,8 @@
 	@include('partials.services')
 	@include('partials.notices.section')
 	@include('partials.galery.section')
-	@include('partials.volunters')
+	@include('partials.volunters') 
 	{{-- @include('partials.sponsors') --}}
-	@include('partials.contact.section')  
+	@include('partials.contact.section') 
 	
 @endsection

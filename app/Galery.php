@@ -10,7 +10,7 @@ use App\MediaGalery;
 class Galery extends Model
 {
 	protected $table = 'galeries';
-	protected $fillable = ['id', 'title', 'slug'];
+	protected $fillable = ['id', 'title','description', 'slug','date'];
 
 
     public function media(){
@@ -24,6 +24,8 @@ class Galery extends Model
 
         $galeryData->slug        = $slug;
         $galeryData->title       = $request->title;
+        $galeryData->description = $request->description;
+        $galeryData->date        = $request->date;
         $galeryData->save();
 
         $nameFolder = 'galery/'.$slug.'-'.$galeryData->id.'/';
@@ -38,9 +40,11 @@ class Galery extends Model
     public static function updateData($request, $id){
 
         $galery = Galery::findOrFail($id);
-        $media = $galery->media()->where('type','video')->get();
+        $media  = $galery->media()->where('type','video')->get();
 
         $galery->title       = $request->title;
+        $galery->description = $request->description;
+        $galery->date        = $request->date;
         $galery->save();
 
         foreach ($media as $key => $value) {

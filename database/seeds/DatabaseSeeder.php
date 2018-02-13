@@ -20,11 +20,11 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleTableSeeder::class);
         $this->call(PermissionRoleTableSeeder::class);
         $this->call(RoleUserTableSeeder::class);
-        $this->call(MediaTableSeeder::class);
-        $this->call(GaleryTableSeeder::class);
-        $this->call(NoticeTableSeeder::class);
-        $this->call(MediaNoticeTableSeeder::class);
-        $this->call(MediaGaleryTableSeeder::class);
+        // $this->call(MediaTableSeeder::class);
+        // $this->call(GaleryTableSeeder::class);
+        // $this->call(NoticeTableSeeder::class);
+        // $this->call(MediaNoticeTableSeeder::class);
+        // $this->call(MediaGaleryTableSeeder::class);
 
         Model::reguard();
     }

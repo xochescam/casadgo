@@ -1,6 +1,7 @@
 .img-thumbnail {
 	border: none !important;
 	background-color: transparent !important;
+	padding: 0px !important;
 }
 
 .mb-4 {
@@ -18,7 +19,7 @@
 .delete-img {
 	color: #c52d2a; 
     top: 0;
-    right: 0;
+    right: 15px;
     text-align: center;
 	float: inline-end;
 	font-size: 16px;
@@ -37,4 +38,23 @@
 	display: inline-block;
 	margin: 10px;
 	position: relative;
+
+	& img {
+		width: 100%;
+	}
+}
+
+.selected-img:hover,
+.selected-img:active,
+.selected-img:focus {
+	border: 3px solid #2ca9b3;
+	cursor: pointer;
+	border-radious: 4px;
+}
+
+.volunters a:hover,
+.volunters a:active,
+.volunters a:focus {
+	color: #2ca9b3;
+	text-decoration: none;
 }

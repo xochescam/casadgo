@@ -45,17 +45,13 @@ Route::delete('/admin/noticias/delete/{id}', ['as' => 'noticias.delete', 'uses' 
 Route::get('/admin/noticias/delete-item/{id}', ['as' => 'noticias.delete.item', 'uses' => 'NoticesController@destroyItem']);
 
 
-// Route::post('/send-email', 'EmailController@send');
+Route::post('/send-email', 'EmailController@send');
 
 // PUBLIC
 Route::get('/nosotros', function () {
     return view('partials.about.more');
 });
 
-Route::get('/noticias', function () {
-    return view('partials.notices.more');
-});
+Route::get('/noticias', 'ContentController@moreNotices');
+Route::get('/galeria', 'ContentController@moreGalery');
 
-Route::get('/galeria', function () {
-    return view('partials.galery.more');
-});

@@ -82,17 +82,23 @@ class NoticesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    {   
         $searchItem = Notice::where('id',$id)->with('media')->get();
 
         $item = $searchItem->mapWithKeys(function ($item) {
 
             $media = $item->media->groupBy('type')->toArray();
 
-            return [   'id' => $item->id,
-                    'title' => $item->title,
+            setlocale(LC_TIME, 'Spanish');
+            $date = Carbon::parse($item->date)->formatLocalized('%A %d %B %Y');
+       
+            return [
+                    'id'          => $item->id,
+                    'date'        => $date,
+                    'title'       => $item->title,
                     'description' => $item->description,
-                    'items' => $media];
+                    'items'       => $media
+                ];
 
             
         })->toArray();

@@ -26,7 +26,7 @@
     const html = `<div class="form-group">
                     <label for="videos `+count+`" class="col-sm-2 text-right">`+count+`.</label>
                     <div class="col-sm-10 align-self-end float-right item-video">
-                      <textarea name="videos[]" class="form-control" rows="1"></textarea>
+                      <textarea name="videos[]" class="form-control" rows="2"></textarea>
                       <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
                     </div>
                   </div>`;
@@ -96,17 +96,18 @@
     const spin    = document.querySelector('.fa-spin');
     const request = new XMLHttpRequest();
     const data    = new FormData(form);
+    const url     = window.location.origin;
     
+
     btn.setAttribute("disabled", "true");
     spin.classList.remove('hidden');
-
-    request.open('POST', 'http://casa.dev/galeria'+id, true);
+    request.open('POST', url+'/galeria'+id, true);
     request.setRequestHeader('X-CSRF-Token', token);
     request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     request.onload = function() {
       if (request.status >= 200 && request.status < 400) {
                 
-        let message = 'La noticia a sido guardada exitosamente.';
+        let message = 'El album ha sido guardado exitosamente.';
 
          if(method == 'PUT') {
             message = 'Los cambios han sido guardados exitosamente.';
@@ -117,7 +118,7 @@
           message,
           'success'
           ).then( function () {
-            window.location.href = 'http://casa.dev/admin/galeria';
+            window.location.href = url+'/admin/galeria';
           })
 
       } else {

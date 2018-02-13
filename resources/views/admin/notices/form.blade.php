@@ -24,7 +24,7 @@
     <div class="col-sm-10 align-self-end float-right">
       @if(isset($type['img']))
         @foreach($type['img'] as $key => $img)
-        <div class="img-container">
+        <div class="img-container  col-lg-3 col-sm-3 col-xs-4">
           <a href="{{ route('noticias.delete.item',$img->id) }}" class="delete-img fa fa-plus fa-rotate-42"></a>
             <img src="{{ url($img->url.'thumb-'.$img->name) }}" alt="">
         </div>
@@ -35,6 +35,7 @@
   </div>
 
   <div class="form-group">
+    <input type="text" name="data-images" class="hidden" value="{{ isset($type['img']) ? 'true' : 'false' }}">
     {!! Form::label('img', isset($notice) ? 'Agregar:' : 'Seleccionar:',['class' => 'col-sm-2 col-form-label']) !!}
     <div class="col-sm-10">
       <input type="file" id="img[]" name="img[]" multiple="true">
@@ -51,7 +52,7 @@
       <div class="form-group">
        {!! Form::label('videos',($key + 1).'.',['class' => 'col-sm-2 text-right']) !!}
         <div class="col-sm-10 align-self-end float-right item-video">
-          {!! Form::textarea('videos[]', 'https://www.youtube.com/watch?v='.$video->url, ['class' => 'form-control col-sm-10','rows' => 1]) !!}
+          {!! Form::textarea('videos[]', 'https://www.youtube.com/watch?v='.$video->url, ['class' => 'form-control col-sm-10','rows' => 2]) !!}
           <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
         </div>
       </div> 
@@ -60,7 +61,7 @@
     <div class="form-group">
        {!! Form::label('videos', '1.',['class' => 'col-sm-2 text-right']) !!}
         <div class="col-sm-10 align-self-end float-right item-video">
-          {!! Form::textarea('videos[]', null, ['class' => 'form-control col-sm-10','rows' => 1]) !!}
+          {!! Form::textarea('videos[]', null, ['class' => 'form-control col-sm-10','rows' => 2]) !!}
           <a class="delete-item-video"=><i class="fa fa-plus fa-rotate-42"></i></a>
         </div>
       </div> 
