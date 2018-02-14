@@ -29,7 +29,7 @@ Route::post('/iniciar-sesion', 'Auth\LoginController@postLogin');
 Route::get('/cerrar-sesion','Auth\LoginController@getLogout');
 
 //Change pass
-Route::get('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@index');
+Route::get('/cambiar-contrasena', 'Auth\ResetPasswordController@index');
 Route::post('/cambiar-contrasena/{id}', 'Auth\ResetPasswordController@update');
 
 //Galery

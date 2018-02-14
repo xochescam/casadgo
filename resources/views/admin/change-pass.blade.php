@@ -22,7 +22,7 @@
                 @include('alerts.error')
                 @include('alerts.warning')
 
-                {!! Form::open(['url'=>['cambiar-contrasena',Auth::user()->id],  'method' => 'POST', 'class' => 'form-horizontal form form--change-pass', 'files' => 'true']) !!}
+                {!! Form::open(['url'=>['/cambiar-contrasena',Auth::user()->id],  'method' => 'POST', 'class' => 'form-horizontal form form--change-pass', 'files' => 'true']) !!}
 
                       <div class="form-group">
                         {!! Form::label('current_pass', 'Contraseña actual:') !!}

@@ -66,16 +66,16 @@ class Media extends Model
       $route       = 'storage/'.$nameFolder;
       \Storage::disk('local')->put($nameFolder.$newImgName,  \File::get($img));
 
-      $image = \Image::make($route.$newImgName);
+      // $image = Image::make($route.$newImgName);
 
-      $image->resize(900, null, function ($constraint) {
-          $constraint->aspectRatio();
-          $constraint->upsize();
-      });
-      $image->save($route.$newImgName);
+      // $image->resize(900, null, function ($constraint) {
+      //     $constraint->aspectRatio();
+      //     $constraint->upsize();
+      // });
+      // $image->save($route.$newImgName);
 
-      $image->fit(250);
-      $image->save($route.'thumb-'.$newImgName);
+      // $image->fit(250);
+      // $image->save($route.'thumb-'.$newImgName);
 	  }
 
     $file->url  = $route;

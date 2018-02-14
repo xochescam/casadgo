@@ -23,7 +23,6 @@ class ChangePassRequest extends FormRequest
      */
     public function rules()
     {
-
         return [
             'current_pass' => 'required|min:3',
             'new_pass' => 'required|min:3|same:confirm_new_pass',
